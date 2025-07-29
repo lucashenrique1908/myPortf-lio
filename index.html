@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Souza | Front-End Developer</title>
+  <!-- css principal  -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- css das fontes  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="content">
+    <header>
+      <button class="menu-btn">
+        <i class="bi bi-list"></i>
+      </button>
+      <nav class="menu">
+        <a href="#" id="resumeLink">My Resume</a>
+        <a href="#" id="aboutMeLink">About me</a>
+        <a href="#" id="projectsLink">Projects</a>
+        <a href="#contato" id="contactLink">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <!-- Botão de fechar seções -->
+      <button class="close-section-btn" id="closeBtn">
+        <i class="bi bi-x-lg"></i>
+      </button>
+      <!-- área de currículo (resume area) -->
+      <section class="resume hide" id="resumeSection">
+        <div id="resumeEmPdf">
+          <a href="docs/Lucas Souza Dev.pdf" target="_blank" id="contactLink"><img src="img/imgProjects/resumeImg.jpeg" alt="Resume"></a>
+        </div>
+      </section>
+      <!-- perfil ** Imagem ilustrativa ** (Profile illustrative image ) -->
+      <div class="title">
+        <h1>Welcome To My Portfólio</h1>
+      </div>
+      <div class="imgProfile" id="profile">
+        <img src="img/imgProjects/profileCartoonn.png" alt="">
+      </div>
+      <!-- Descrição sobre mim (description about me) -->
+      <section class="aboutMeContain" id="aboutMeSection">
+        <img src="img/profile.jpg" alt="imagem de perfil">
+        <p>Olá! Meu nome é Lucas Souza, e estou em transição de carreira para a área de tecnologia,
+           com foco em desenvolvimento Front-End.
+           Hoje trabalho com React, JavaScript, HTML e CSS, e estou construindo projetos práticos que demonstram meu aprendizado e minha evolução
+           constante.</p>
+        <p>Venho de uma trajetória sólida em liderança, gestão e atendimento ao cliente — já atuei como gerente e líder de equipes em empresas
+          no Brasil e em Portugal.
+          Toda essa experiência me ensinou a ser responsável, resiliente, resolver problemas com autonomia e nunca fugir de desafios.</p>
+        <p>Decidi migrar para a tecnologia porque acredito no poder da inovação e na capacidade que o desenvolvimento web tem de transformar
+          negócios e impactar pessoas.
+          Tenho plena consciência de que ainda estou no início dessa jornada, mas posso garantir que tudo o que ainda não sei,
+          eu me esforço ao máximo para aprender e aplicar com excelência.</p>
+        <p>Sou uma pessoa disciplinada, dedicada e confiável. Gosto de trabalhar em equipe,
+          aprender com os outros e contribuir com o que já vivi em outras áreas.
+          Se eu não souber algo,
+          vou estudar e aprender até conseguir entregar o melhor resultado possível.</p>
+      </section>
+      <!-- Área de Projetos (Projects area) -->
+      <section class="projects" id="projectSection">
+        
+        <div class="imgContainer">
+          <a href="https://lucashenrique1908.github.io/Curiosidades-Do-Android/" target="_blank"><img src="img/imgProjects/Android-img.jpeg" alt="Projeto Android" /></a>
+          <h3>Projeto Android</h3>
+          <div class="iconsProject">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+          </div>
+          <p>Projeto desenvolvido para estudar HTML e CSS com layout responsivo.</p>
+        </div>
+        <div class="imgContainer">
+          <a href="https://lucashenrique1908.github.io/TodoListAdvanced/" target="_blank"><img src="img/imgProjects/ToDo-img.jpeg" alt="Todo list avançado" /></a>
+          <h3>Projeto Todo List Avançado</h3>
+          <div class="iconsProject">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+          <p>Um gerênciador de tarefas, com filtros, pesquisa e salvo em localStore</p>
+        </div>
+        <div class="imgContainer">
+          <a href="https://lucashenrique1908.github.io/HdcProject/" target="_blank"><img src="img/imgProjects/HdcProject.jpeg" alt="HdcProject" /></a>
+          <h3>Projeto Hdc Project</h3>
+          <div class="iconsProject">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+          </div>
+          <p>Primeiro Projeto desenvolvido para estudar HTML e CSS.</p>
+        </div>
+        <div class="imgContainer">
+          <a href="https://lucashenrique1908.github.io/Multiplication-table/" target="_blank"><img src="img/imgProjects/TableCalculate-img.jpeg" alt="Calculadora" /></a>
+          <h3>Calculadora</h3>
+          <div class="iconsProject">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+          <p>Projeto desenvolvido para estudar HTML, CSS e  JavaScript, uma Simples calculadora. (Meu primeiro projeto com Javascript)</p>
+        </div>
+        <div class="imgContainer">
+          <a href="https://lucashenrique1908.github.io/ImcCalculator/" target="_blank"><img src="img/imgProjects/Imc-Table.jpeg" alt="Calculadora imc" /></a>
+          <h3>Calculadora de Imc</h3>
+          <div class="iconsProject">
+            <i class="devicon-html5-plain colored"></i>
+            <i class="devicon-css3-plain colored"></i>
+            <i class="devicon-javascript-plain colored"></i>
+          </div>
+          <p>Projeto desenvolvido Para que usuários possam checar a sua saúde, através de um cálculo baseado no seu imc (Peso e altura )</p>
+        </div>
+      </section>
+        </div>
+    </main>
+    <!-- área de contatos (conntacts area) -->
+  <footer class="contato" id="contato">
+    <h2>Entre em Contato</h2>
+    <p><i class="bi bi-telephone-fill"></i>: +351 967806043 (number from Portugal)</p>
+    <p><i class="bi bi-linkedin"></i>: <a href="https://www.linkedin.com/in/lucassouzadev2025/" target="_blank">lucassouzadev2025</a></p>
+    <p><i class="bi bi-github"></i>: <a href="https://github.com/lucashenrique1908" target="_blank">lucassouzadev2025</a></p>
+    <p><i class="bi bi-envelope-fill"></i>: <a href="mailto:Contato.emphenrique@gmail.com">Contato.emphenrique@gmail.com</a></p>
+
+
+  </footer>
+</body>
+</html>
