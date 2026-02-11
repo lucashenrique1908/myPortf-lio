@@ -1,300 +1,293 @@
-/* ==========================
-   RESPONSIVE STYLESHEET
-   ========================== */
-
-
-
-
 /* Base adjustments for smaller screens */
 @media screen and (max-width: 1200px) {
-    header {
-        margin: 6% 0;
-    }
+	header {
+		margin: 6% 0;
+	}
 
-    .nav-container {
-        display: flex;
-    }
+	.nav-container {
+		display: flex;
+	}
 
+	.introduction img {
+		width: 200px;
+	}
 
+	.introduction h1 {
+		font-size: 0.6rem;
+	}
 
+	.introduction p {
+		font-size: 0.95rem;
+	}
 
-    .introduction img {
-        width: 200px;
-    }
+	.tecnologyes-header {
+		padding: 2rem;
+	}
 
-    .introduction h1 {
-        font-size: .6rem;
-    }
+	.tecnologyes button {
+		display: flex;
+		margin: 10px;
+		width: 150px;
+	}
 
-    .introduction p {
-        font-size: 0.95rem;
-    }
+	.tecnologyes button span,
+	#tasks-btn span {
+		font-size: 0.8rem;
+	}
 
-    .tecnologyes-header {
-        padding: 2rem;
-    }
+	.project-js-container,
+	.projects-html-css-container,
+	.tasks-excercise-container,
+	.react-container {
+		gap: 15px;
+		justify-content: center;
+	}
 
-    .tecnologyes button {
-        display: flex;
-        margin: 10px;
-        width: 150px;
+	.project-js,
+	.project-html-css,
+	.project-tasks,
+	.react-project {
+		width: 250px;
+	}
 
-    }
+	.project-js-item img,
+	.project-html-css-item img,
+	.project-item-tasks img,
+	.project-item-react img {
+		height: 150px;
+	}
 
-    .tecnologyes button span,
-    #tasks-btn span {
-        font-size: .8rem;
-    }
+	.about-me .card {
+		padding: 20px;
+		max-width: 500px;
+	}
 
-    .project-js-container,
-    .projects-html-css-container,
-    .tasks-excercise-container,
-    .react-container {
-        gap: 15px;
-        justify-content: center;
-    }
+	#advanced-btn {
+		padding: 12px 20px;
+		font-size: 0.9rem;
+	}
 
-    .project-js,
-    .project-html-css,
-    .project-tasks,
-    .react-project {
-        width: 250px;
-    }
+	.nav-container ul li {
+		font-size: 1rem;
+	}
 
-    .project-js-item img,
-    .project-html-css-item img,
-    .project-item-tasks img,
-    .project-item-react img {
-        height: 150px;
-    }
+	.nav-btn,
+	#theme-toggle,
+	#code-btn {
+		padding: 1rem;
+		font-size: 0.95rem;
+	}
 
-    .about-me .card {
-        padding: 20px;
-        max-width: 500px;
-    }
-
-    #advanced-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-
-    .nav-container ul li {
-        font-size: 1rem;
-    }
-
-    .nav-btn {
-        padding: 1rem;
-        font-size: 0.95rem;
-    }
-
-    .resume-section {
-        margin: 30px 0;
-    }
+	.resume-section {
+		margin: 30px 0;
+	}
 }
 
 /* Mobile Portrait */
 @media screen and (max-width: 768px) {
-    header {
-        margin: 4% 0;
-    }
+	header {
+		margin: 4% 0;
+	}
 
-    .introduction img {
-        width: 160px;
-    }
+	.introduction img {
+		width: 160px;
+	}
 
-    .introduction h1 {
-        font-size: 1.5rem;
-    }
+	.introduction h1 {
+		font-size: 1.5rem;
+	}
 
-    .introduction p {
-        font-size: 0.85rem;
-    }
+	.introduction p {
+		font-size: 0.85rem;
+	}
 
-    .tecnologyes-header {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 15px;
-        padding: 0 10px;
-    }
+	.tecnologyes-header {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		gap: 15px;
+		padding: 0 10px;
+	}
 
-    .tecnologyes {
-        width: 100%;
-        display: flex;
-    }
+	.tecnologyes {
+		width: 100%;
+		display: flex;
+	}
 
-    .tecnologyes button {
-        width: 90%;
-        max-width: none;
-        text-align: center;
-    }
+	.tecnologyes button {
+		width: 90%;
+		max-width: none;
+		text-align: center;
+	}
 
+	.project-js-container,
+	.projects-html-css-container,
+	.tasks-excercise-container,
+	.react-container {
+		flex-direction: column;
+		gap: 20px;
+		justify-content: center;
+		align-items: center;
+	}
 
+	.project-js,
+	.project-html-css,
+	.project-tasks,
+	.react-project {
+		width: 90%;
+	}
 
-    .project-js-container,
-    .projects-html-css-container,
-    .tasks-excercise-container,
-    .react-container {
-        flex-direction: column;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
-    }
+	.project-js-item img,
+	.project-html-css-item img,
+	.project-item-tasks img,
+	.project-item-react img {
+		height: auto;
+		width: 100%;
+	}
 
-    .project-js,
-    .project-html-css,
-    .project-tasks,
-    .react-project {
-        width: 90%;
-    }
+	.about-me .card {
+		padding: 15px;
+		max-width: 95%;
+	}
 
-    .project-js-item img,
-    .project-html-css-item img,
-    .project-item-tasks img,
-    .project-item-react img {
-        height: auto;
-        width: 100%;
-    }
+	.nav-container ul {
+		flex-direction: column;
+		gap: 15px;
+		padding: 1.5rem;
+	}
 
-    .about-me .card {
-        padding: 15px;
-        max-width: 95%;
-    }
+	.nav-container ul li {
+		font-size: 1.1rem;
+	}
 
-    .nav-container ul {
-        flex-direction: column;
-        gap: 15px;
-        padding: 1.5rem;
-    }
+	.nav-btn,
+	#theme-toggle,
+	#code-btn {
+		width: 100%;
+		font-size: 1rem;
+	}
 
-    .nav-container ul li {
-        font-size: 1.1rem;
-    }
+	#advanced-btn {
+		width: 90%;
+		padding: 12px;
+		font-size: 0.85rem;
+	}
 
-    .nav-btn {
-        width: 100%;
-        font-size: 1rem;
-    }
-
-    #advanced-btn {
-        width: 90%;
-        padding: 12px;
-        font-size: 0.85rem;
-    }
-
-    .resume-section {
-        margin: 20px 0;
-    }
+	.resume-section {
+		margin: 20px 0;
+	}
 }
 
 /* Small mobile devices */
 @media screen and (max-width: 480px) {
-    header {
-        margin: 3% 0;
-    }
+	header {
+		margin: 3% 0;
+	}
 
-    .introduction img {
-        width: 140px;
-    }
+	.introduction img {
+		width: 140px;
+	}
 
-    .introduction #typing-text {
-        font-size: .8rem;
-    }
+	.introduction #typing-text {
+		font-size: 0.8rem;
+	}
 
-    .introduction p {
-        font-size: 0.8rem;
-    }
+	.introduction p {
+		font-size: 0.8rem;
+	}
 
-    .tecnologyes-header {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-        padding: 0 5px;
-        text-align: center;
-    }
+	.tecnologyes-header {
+		flex-direction: column;
+		width: 100%;
+		gap: 10px;
+		padding: 0 5px;
+		text-align: center;
+	}
 
-    .tecnologyes {
-        width: 100%;
-        display: flex;
-        text-align: center;
-    }
+	.tecnologyes {
+		width: 100%;
+		display: flex;
+		text-align: center;
+	}
 
-    .tecnologyes button {
-        width: 100%;
-        max-width: none;
-        text-align: center;
-    }
+	.tecnologyes button {
+		width: 100%;
+		max-width: none;
+		text-align: center;
+	}
 
-    .project-js,
-    .project-html-css,
-    .project-tasks,
-    .react-project {
-        width: 95%;
-    }
+	.project-js,
+	.project-html-css,
+	.project-tasks,
+	.react-project {
+		width: 95%;
+	}
 
-    .project-js-item img,
-    .project-html-css-item img,
-    .project-item-tasks img,
-    .project-item-react img {
-        height: auto;
-        width: 100%;
-    }
+	.project-js-item img,
+	.project-html-css-item img,
+	.project-item-tasks img,
+	.project-item-react img {
+		height: auto;
+		width: 100%;
+	}
 
-    .about-me .card {
-        padding: 10px;
-        max-width: 95%;
-    }
+	.about-me .card {
+		padding: 10px;
+		max-width: 95%;
+	}
 
-    .nav-container ul {
-        padding: 1rem;
-    }
+	.nav-container ul {
+		padding: 1rem;
+	}
 
-    .nav-btn {
-        width: 100%;
-        padding: 10px;
-        font-size: 0.9rem;
-    }
+	.nav-btn,
+	#theme-toggle,
+	#code-btn {
+		width: 100%;
+		padding: 10px;
+		font-size: 0.9rem;
+	}
 
-    #advanced-btn {
-        width: 95%;
-        padding: 10px;
-        font-size: 0.8rem;
-    }
+	#advanced-btn {
+		width: 95%;
+		padding: 10px;
+		font-size: 0.8rem;
+	}
 
-    .resume-section {
-        margin: 15px 0;
-    }
+	.resume-section {
+		margin: 15px 0;
+	}
 }
 
 /* Footer Responsiveness */
 @media screen and (max-width: 768px) {
-    .contacts .card-footer {
-        padding: 30px 10px;
-    }
+	.contacts .card-footer {
+		padding: 30px 10px;
+	}
 
-    .contacts .card-footer p,
-    .contacts .card-footer h3 {
-        margin: 20px 0;
-        font-size: 0.9rem;
-    }
+	.contacts .card-footer p,
+	.contacts .card-footer h3 {
+		margin: 20px 0;
+		font-size: 0.9rem;
+	}
 
-    .contacts .card-footer a {
-        font-size: 0.85rem;
-    }
+	.contacts .card-footer a {
+		font-size: 0.85rem;
+	}
 }
 
 @media screen and (max-width: 480px) {
-    .contacts .card-footer {
-        padding: 20px 5px;
-    }
+	.contacts .card-footer {
+		padding: 20px 5px;
+	}
 
-    .contacts .card-footer p,
-    .contacts .card-footer h3 {
-        margin: 15px 0;
-        font-size: 0.8rem;
-    }
+	.contacts .card-footer p,
+	.contacts .card-footer h3 {
+		margin: 15px 0;
+		font-size: 0.8rem;
+	}
 
-    .contacts .card-footer a {
-        font-size: 0.8rem;
-    }
+	.contacts .card-footer a {
+		font-size: 0.8rem;
+	}
 }
