@@ -424,13 +424,16 @@ body.light-mode #typing-text.typing {
 	border: 1px solid var(--border);
 	border-radius: calc(var(--radius-xl) - 6px);
 	padding: 0.9rem;
+	display: flex;
+	justify-content: center;
+	
 }
 
 .profile-image-wrap img {
 	aspect-ratio: 1 / 1;
-	border-radius: 18px;
+	border-radius: 50%;
 	object-fit: cover;
-	width: 100%;
+	width: 60%;
 }
 
 .profile-copy {
