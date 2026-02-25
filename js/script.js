@@ -1,134 +1,222 @@
-// Botões de tecnologias
-const htmlBtn = document.getElementById("html-btn");
-const jsBtn = document.getElementById("JavaScript-btn");
-const reactBtn = document.getElementById("react-btn");
-const contactBtn = document.getElementById("nav-contact");
-const tasksBtn = document.getElementById("tasks-btn");
-
-const navAbout = document.getElementById("nav-about");
-const aboutSection = document.getElementById("about-section");
-const closeAbout = document.getElementById("close-about");
-const contactContainer = document.getElementById("contact");
-
-// Containers
-const htmlProjects = document.querySelector(".projects-html-css-container");
-const jsProjects = document.querySelector(".project-js-container");
-const reactContainer = document.querySelector(".react-container");
-const taskContainer = document.querySelector(".tasks-excercise-container");
+// Main interactions for the portfolio.
+// HTML keeps the structure/content.
+// CSS keeps the visual style.
+// This file only handles behavior.
 
 document.addEventListener("DOMContentLoaded", () => {
-  const text = "Lucas Souza — Front-End Developer"; // texto que aparecerá
-  const h1 = document.getElementById("typing-text");
-  h1.classList.add("typing"); // cursor piscando
-  let index = 0;
+	const tabButtons = Array.from(document.querySelectorAll(".tech-tab"));
+	const tabPanels = Array.from(document.querySelectorAll(".project-panel"));
 
-  setTimeout(() => {
-    const interval = setInterval(() => {
-      h1.textContent += text[index];
-      index++;
-      if (index === text.length) {
-        clearInterval(interval);
-        h1.classList.remove("typing"); // remove o cursor após terminar
-      }
-    }, 100);
-  }, 1000); 
-});
+	const themeButton = document.getElementById("theme-toggle");
+	const aboutPanel = document.getElementById("about-section");
+	const contactPanel = document.getElementById("contact-section");
+	const profileCard = document.getElementById("profile-card");
+	const typingText = document.getElementById("typing-text");
 
-// About me
-navAbout.addEventListener("click", () => {
-  // abre a section
-  aboutSection.classList.remove("hide");
+	const openAboutButton = document.getElementById("nav-about");
+	const openContactButton = document.getElementById("nav-contact");
+	const openHeroContactButton = document.getElementById("hero-contact-btn");
+	const closeAboutButton = document.getElementById("close-about");
+	const closeContactButton = document.getElementById("close-contact");
 
-  // espera um frame pra garantir que ela esteja visível
-  requestAnimationFrame(() => {
-    aboutSection.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  });
-});
+	let revealObserver = null;
 
+	function setActiveTab(targetName) {
+		tabButtons.forEach((button) => {
+			const isActive = button.dataset.target === targetName;
+			button.classList.toggle("is-active", isActive);
+			button.setAttribute("aria-selected", String(isActive));
+		});
 
-contactBtn.addEventListener("click", () => {
-  // espera um frame pra garantir que ela esteja visível
-  requestAnimationFrame(() => {
-    contactContainer.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  });
-});
+		tabPanels.forEach((panel) => {
+			const isActive = panel.dataset.panel === targetName;
+			panel.hidden = !isActive;
+			panel.classList.toggle("is-active", isActive);
+		});
 
+		refreshRevealAnimation();
+		bindTiltOnCards();
+	}
 
- const toggleBtn = document.getElementById("theme-toggle");
- const body = document.body;
+	function applyTheme(theme) {
+		const isLight = theme === "light";
+		document.body.classList.toggle("light-mode", isLight);
 
+		if (!themeButton) return;
 
+		themeButton.setAttribute("aria-pressed", String(isLight));
+		themeButton.innerHTML = isLight
+			? '<i class="fa-regular fa-sun"></i><span>Light</span>'
+			: '<i class="fa-regular fa-moon"></i><span>Dark</span>';
+	}
 
- // carregar preferência salva
- if (localStorage.getItem("theme") === "light") {
-		body.classList.add("light-mode");
-		toggleBtn.textContent = "Dark Mode";
- }
+	function toggleTheme() {
+		const nextTheme = document.body.classList.contains("light-mode") ? "dark" : "light";
+		localStorage.setItem("theme", nextTheme);
+		applyTheme(nextTheme);
+	}
 
- toggleBtn.addEventListener("click", () => {
-		body.classList.toggle("light-mode");
+	function openPanel(panel) {
+		if (!panel) return;
+		panel.classList.add("is-open");
+		panel.setAttribute("aria-hidden", "false");
+		document.body.style.overflow = "hidden";
+	}
 
-		if (body.classList.contains("light-mode")) {
-			toggleBtn.textContent = "Dark Mode";
-			localStorage.setItem("theme", "light");
-		} else {
-			toggleBtn.textContent = "Light Mode";
-			localStorage.setItem("theme", "dark");
+	function closePanel(panel) {
+		if (!panel) return;
+		panel.classList.remove("is-open");
+		panel.setAttribute("aria-hidden", "true");
+
+		const anyPanelOpen =
+			aboutPanel?.classList.contains("is-open") ||
+			contactPanel?.classList.contains("is-open");
+
+		if (!anyPanelOpen) {
+			document.body.style.overflow = "";
 		}
- });
+	}
 
+	function closeAllPanels() {
+		closePanel(aboutPanel);
+		closePanel(contactPanel);
+	}
 
-// Fechar seção About Me ao clicar no botão "X"
-closeAbout.addEventListener("click", () => {
-  aboutSection.classList.add("hide");
-});
+	function runTypingTitle() {
+		if (!typingText) return;
 
-// Fechar seção About Me ao clicar fora do card
-aboutSection.addEventListener("click", (e) => {
-  // se o clique NÃO for dentro do card
-  if (!e.target.closest(".card")) {
-    aboutSection.classList.add("hide");
-  }
-});
+		const title = "Lucas Souza Front-End Developer";
+		let currentIndex = 0;
 
-// HTML
-htmlBtn.addEventListener("click", () => {
-  htmlProjects.classList.remove("hide");
-  jsProjects.classList.add("hide");
-  reactContainer.classList.add("hide");
-  taskContainer.classList.add("hide");
-});
+		typingText.textContent = "";
+		typingText.classList.add("typing");
 
-// JavaScript
-jsBtn.addEventListener("click", () => {
-  jsProjects.classList.remove("hide");
-  htmlProjects.classList.add("hide");
-  reactContainer.classList.add("hide");
-  taskContainer.classList.add("hide");
-});
+		const timer = window.setInterval(() => {
+			typingText.textContent += title[currentIndex];
+			currentIndex += 1;
 
-// React
-reactBtn.addEventListener("click", () => {
-  reactContainer.classList.remove("hide");
-  jsProjects.classList.add("hide");
-  htmlProjects.classList.add("hide");
-  taskContainer.classList.add("hide");
-});
-//task area
-tasksBtn.addEventListener("click", () => {
-  taskContainer.classList.remove("hide");
-  jsProjects.classList.add("hide");
-  htmlProjects.classList.add("hide");
-  reactContainer.classList.add("hide");
-});
+			if (currentIndex >= title.length) {
+				window.clearInterval(timer);
+				window.setTimeout(() => typingText.classList.remove("typing"), 500);
+			}
+		}, 65);
+	}
 
-// Botão de fechar página vazia
-document.getElementById("exit-container").addEventListener("click", () => {
-  reactContainer.classList.add("hide");
+	function refreshRevealAnimation() {
+		if (revealObserver) {
+			revealObserver.disconnect();
+		}
+
+		const visibleCards = document.querySelectorAll(
+			".project-panel:not([hidden]) .reveal-on-scroll"
+		);
+
+		if (!visibleCards.length) return;
+
+		if (!("IntersectionObserver" in window)) {
+			visibleCards.forEach((card) => card.classList.add("is-visible"));
+			return;
+		}
+
+		revealObserver = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) return;
+					entry.target.classList.add("is-visible");
+					revealObserver.unobserve(entry.target);
+				});
+			},
+			{ threshold: 0.12 }
+		);
+
+		visibleCards.forEach((card) => revealObserver.observe(card));
+	}
+
+	function addTiltEffect(element, maxTilt = 3) {
+		if (!element) return;
+		if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+		if (element.dataset.tiltReady === "true") return;
+
+		element.dataset.tiltReady = "true";
+
+		const resetTransform = () => {
+			element.style.transform = "";
+		};
+
+		element.addEventListener("mousemove", (event) => {
+			const rect = element.getBoundingClientRect();
+			const x = (event.clientX - rect.left) / rect.width;
+			const y = (event.clientY - rect.top) / rect.height;
+			const rotateY = (x - 0.5) * maxTilt * 2;
+			const rotateX = (0.5 - y) * maxTilt * 2;
+
+			element.style.transform =
+				`perspective(900px) rotateX(${rotateX.toFixed(2)}deg) ` +
+				`rotateY(${rotateY.toFixed(2)}deg) translateY(-2px)`;
+		});
+
+		element.addEventListener("mouseleave", resetTransform);
+		element.addEventListener("blur", resetTransform, true);
+	}
+
+	function bindTiltOnCards() {
+		document
+			.querySelectorAll(".project-panel:not([hidden]) [data-tilt-card]")
+			.forEach((card) => addTiltEffect(card, 3));
+
+		addTiltEffect(profileCard, 4);
+	}
+
+	function blockPlaceholderLinks() {
+		document.querySelectorAll('a[href="#"]').forEach((link) => {
+			link.addEventListener("click", (event) => {
+				event.preventDefault();
+			});
+		});
+	}
+
+	function setupEvents() {
+		tabButtons.forEach((button) => {
+			button.addEventListener("click", () => {
+				setActiveTab(button.dataset.target || "html-css");
+			});
+		});
+
+		themeButton?.addEventListener("click", toggleTheme);
+
+		openAboutButton?.addEventListener("click", () => openPanel(aboutPanel));
+		openContactButton?.addEventListener("click", () => openPanel(contactPanel));
+		openHeroContactButton?.addEventListener("click", () => openPanel(contactPanel));
+
+		closeAboutButton?.addEventListener("click", () => closePanel(aboutPanel));
+		closeContactButton?.addEventListener("click", () => closePanel(contactPanel));
+
+		document.querySelectorAll(".overlay-backdrop").forEach((backdrop) => {
+			backdrop.addEventListener("click", () => {
+				const panelName = backdrop.getAttribute("data-close");
+				if (panelName === "about") closePanel(aboutPanel);
+				if (panelName === "contact") closePanel(contactPanel);
+			});
+		});
+
+		document.addEventListener("keydown", (event) => {
+			if (event.key === "Escape") {
+				closeAllPanels();
+			}
+		});
+	}
+
+	function init() {
+		const savedTheme = localStorage.getItem("theme");
+		applyTheme(savedTheme === "light" ? "light" : "dark");
+
+		setupEvents();
+		blockPlaceholderLinks();
+		setActiveTab("html-css");
+		runTypingTitle();
+		refreshRevealAnimation();
+		bindTiltOnCards();
+	}
+
+	init();
 });

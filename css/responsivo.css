@@ -1,295 +1,196 @@
-/* Base adjustments for smaller screens */
-@media screen and (max-width: 1200px) {
-	header {
-		margin: 6% 0;
+
+
+/* Large tablets / small laptops */
+@media (max-width: 1100px) {
+	.hero {
+		grid-template-columns: 1fr;
 	}
 
-	.nav-container {
-		display: flex;
-	}
-
-	.introduction img {
-		width: 200px;
-	}
-
-	.introduction h1 {
-		font-size: 0.6rem;
-	}
-
-	.introduction p {
-		font-size: 0.95rem;
-	}
-
-	.tecnologyes-header {
-		padding: 2rem;
-	}
-
-	.tecnologyes button {
-		display: flex;
-		margin: 10px;
-		width: 150px;
-	}
-
-	.tecnologyes button span,
-	#tasks-btn span {
-		font-size: 0.8rem;
-	}
-
-	.project-js-container,
-	.projects-html-css-container,
-	.tasks-excercise-container,
-	.react-container {
-		gap: 15px;
-		justify-content: center;
-	}
-
-	.project-js,
-	.project-html-css,
-	.project-tasks,
-	.react-project {
-		width: 250px;
-	}
-
-	.project-js-item img,
-	.project-html-css-item img,
-	.project-item-tasks img,
-	.project-item-react img {
-		height: 150px;
-	}
-
-	.about-me .card {
-		padding: 20px;
-		max-width: 500px;
-	}
-    .about-me h2, .about-me p, about-me i {
-		color: #fff;
-	}
-	#advanced-btn {
-		padding: 12px 20px;
-		font-size: 0.9rem;
-	}
-
-	.nav-container ul li {
-		font-size: 1rem;
-	}
-
-	.nav-btn,
-	#theme-toggle,
-	#code-btn {
-		padding: 1rem;
-		font-size: 0.95rem;
-	}
-
-	.resume-section {
-		margin: 30px 0;
-	}
-}
-
-/* Mobile Portrait */
-@media screen and (max-width: 768px) {
-	header {
-		margin: 4% 0;
-	}
-
-	.introduction img {
-		width: 160px;
-	}
-
-	.introduction h1 {
-		font-size: 1.5rem;
-	}
-
-	.introduction p {
-		font-size: 0.85rem;
-	}
-
-	.tecnologyes-header {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-		gap: 15px;
-		padding: 0 10px;
-	}
-
-	.tecnologyes {
-		width: 100%;
-		display: flex;
-	}
-
-	.tecnologyes button {
-		width: 90%;
-		max-width: none;
-		text-align: center;
-	}
-
-	.project-js-container,
-	.projects-html-css-container,
-	.tasks-excercise-container,
-	.react-container {
-		flex-direction: column;
-		gap: 20px;
-		justify-content: center;
+	.profile-card {
+		flex-direction: row;
 		align-items: center;
 	}
 
-	.project-js,
-	.project-html-css,
-	.project-tasks,
-	.react-project {
-		width: 90%;
+	.profile-image-wrap {
+		flex: 0 0 220px;
 	}
 
-	.project-js-item img,
-	.project-html-css-item img,
-	.project-item-tasks img,
-	.project-item-react img {
-		height: auto;
-		width: 100%;
+	.project-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
-	.about-me .card {
-		padding: 15px;
-		max-width: 95%;
-	}
-
-	.nav-container ul {
+	.resume-card {
+		align-items: flex-start;
 		flex-direction: column;
-		gap: 15px;
-		padding: 1.5rem;
 	}
 
-	.nav-container ul li {
-		font-size: 1.1rem;
-	}
-
-	.nav-btn,
-	#theme-toggle,
-	#code-btn {
-		width: 100%;
-		font-size: 1rem;
-	}
-
-	#advanced-btn {
-		width: 90%;
-		padding: 12px;
-		font-size: 0.85rem;
-	}
-
-	.resume-section {
-		margin: 20px 0;
+	.resume-actions {
+		justify-content: flex-start;
 	}
 }
 
-/* Small mobile devices */
-@media screen and (max-width: 480px) {
-	header {
-		margin: 3% 0;
-	}
-
-	.introduction img {
-		width: 140px;
-	}
-
-	.introduction #typing-text {
-		font-size: 0.8rem;
-	}
-
-	.introduction p {
-		font-size: 0.8rem;
-	}
-
-	.tecnologyes-header {
+/* Tablets */
+@media (max-width: 860px) {
+	.top-nav {
+		align-items: stretch;
+		border-radius: 20px;
 		flex-direction: column;
-		width: 100%;
-		gap: 10px;
-		padding: 0 5px;
-		text-align: center;
+		gap: 0.75rem;
+		padding: 0.85rem;
+		top: 0.5rem;
 	}
 
-	.tecnologyes {
-		width: 100%;
+	.brand-chip {
+		justify-content: center;
+	}
+
+	.nav-actions {
+		justify-content: center;
+	}
+
+	.nav-actions li {
 		display: flex;
-		text-align: center;
 	}
 
-	.tecnologyes button {
-		width: 100%;
-		max-width: none;
-		text-align: center;
+	.nav-actions .ghost-btn,
+	.nav-actions .solid-btn {
+		min-width: 120px;
 	}
 
-	.project-js,
-	.project-html-css,
-	.project-tasks,
-	.react-project {
-		width: 95%;
+	.hero {
+		margin-top: 1.25rem;
 	}
 
-	.project-js-item img,
-	.project-html-css-item img,
-	.project-item-tasks img,
-	.project-item-react img {
-		height: auto;
-		width: 100%;
+	.hero-content,
+	.profile-card,
+	.projects-section,
+	.resume-card {
+		border-radius: 18px;
 	}
 
-	.about-me .card {
-		padding: 10px;
-		max-width: 95%;
+	.hero-content {
+		padding: 1.35rem;
 	}
 
-	.nav-container ul {
-		padding: 1rem;
+	.tech-tabs {
+		grid-template-columns: 1fr;
 	}
 
-	.nav-btn,
-	#theme-toggle,
-	#code-btn {
-		width: 100%;
-		padding: 10px;
-		font-size: 0.9rem;
+	.project-grid {
+		grid-template-columns: 1fr;
 	}
 
-	#advanced-btn {
-		width: 95%;
-		padding: 10px;
-		font-size: 0.8rem;
-	}
-
-	.resume-section {
-		margin: 15px 0;
+	.overlay-card {
+		padding: 1rem 0.95rem 0.9rem;
 	}
 }
 
-/* Footer Responsiveness */
-@media screen and (max-width: 768px) {
-	.contacts .card-footer {
-		padding: 30px 10px;
+/* Mobile */
+@media (max-width: 600px) {
+	body {
+		font-size: 15px;
 	}
 
-	.contacts .card-footer p,
-	.contacts .card-footer h3 {
-		margin: 20px 0;
-		font-size: 0.9rem;
+	.top-nav {
+		width: calc(100% - 1rem);
 	}
 
-	.contacts .card-footer a {
-		font-size: 0.85rem;
+	.nav-actions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		width: 100%;
+	}
+
+	.nav-actions li {
+		width: 100%;
+	}
+
+	.nav-actions .ghost-btn,
+	.nav-actions .solid-btn,
+	.nav-link-btn {
+		width: 100%;
+	}
+
+	.hero {
+		padding: 0 0.5rem;
+	}
+
+	.main-content {
+		padding: 0 0.5rem;
+	}
+
+	.hero-title {
+		min-height: 2.8em;
+	}
+
+	.hero-cta {
+		flex-direction: column;
+	}
+
+	.hero-cta .ghost-btn,
+	.hero-cta .solid-btn {
+		width: 100%;
+	}
+
+	.profile-card {
+		flex-direction: column;
+	}
+
+	.profile-image-wrap {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+
+	.project-actions {
+		flex-direction: column;
+	}
+
+	.project-actions a {
+		width: 100%;
+	}
+
+	.resume-actions {
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.resume-actions .ghost-btn,
+	.resume-actions .solid-btn {
+		width: 100%;
+	}
+
+	.contact-item {
+		align-items: flex-start;
+	}
+
+	.contact-item span {
+		word-break: break-word;
+	}
+
+	.overlay-panel {
+		padding: 0.65rem;
+	}
+
+	.overlay-card {
+		max-height: 92vh;
 	}
 }
 
-@media screen and (max-width: 480px) {
-	.contacts .card-footer {
-		padding: 20px 5px;
+/* Very small screens */
+@media (max-width: 420px) {
+	.nav-actions {
+		grid-template-columns: 1fr;
 	}
 
-	.contacts .card-footer p,
-	.contacts .card-footer h3 {
-		margin: 15px 0;
-		font-size: 0.8rem;
+	.hero-title {
+		font-size: 1.7rem;
 	}
 
-	.contacts .card-footer a {
-		font-size: 0.8rem;
+	.skill-pill {
+		font-size: 0.82rem;
+	}
+
+	.project-body {
+		padding: 0.8rem;
 	}
 }
