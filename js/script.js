@@ -19,6 +19,38 @@ document.addEventListener("DOMContentLoaded", () => {
 	const closeAboutButton = document.getElementById("close-about");
 	const closeContactButton = document.getElementById("close-contact");
 
+	// Hamburger menu logic
+	const hamburgerBtn = document.getElementById("hamburger-btn");
+	const navMenu = document.getElementById("main-menu");
+
+	if (hamburgerBtn && navMenu) {
+		hamburgerBtn.addEventListener("click", () => {
+			hamburgerBtn.classList.toggle("active");
+			navMenu.classList.toggle("active");
+			const expanded = hamburgerBtn.getAttribute("aria-expanded") === "true";
+			hamburgerBtn.setAttribute("aria-expanded", !expanded);
+		});
+
+		// Fecha o menu ao clicar em um link ou botão do menu
+		navMenu.querySelectorAll("a, button").forEach((item) => {
+			item.addEventListener("click", () => {
+				hamburgerBtn.classList.remove("active");
+				navMenu.classList.remove("active");
+				hamburgerBtn.setAttribute("aria-expanded", "false");
+			});
+		});
+
+		// Botão de fechar (X)
+		const closeMenuBtn = document.getElementById("close-menu-btn");
+		if (closeMenuBtn) {
+			closeMenuBtn.addEventListener("click", () => {
+				hamburgerBtn.classList.remove("active");
+				navMenu.classList.remove("active");
+				hamburgerBtn.setAttribute("aria-expanded", "false");
+			});
+		}
+	}
+
 	let revealObserver = null;
 
 	function setActiveTab(targetName) {

@@ -197,6 +197,40 @@ body.light-mode .solid-btn {
 	z-index: 30;
 }
 
+/* Hamburger styles */
+.hamburger {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	z-index: 40;
+}
+.hamburger-bar {
+	width: 28px;
+	height: 3px;
+	background: var(--text);
+	margin: 4px 0;
+	border-radius: 2px;
+	transition: 0.3s;
+}
+
+/* Hamburger active (for animation) */
+.hamburger.active .hamburger-bar:nth-child(1) {
+	transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active .hamburger-bar:nth-child(2) {
+	opacity: 0;
+}
+.hamburger.active .hamburger-bar:nth-child(3) {
+	transform: translateY(-7px) rotate(-45deg);
+}
+}
+
 body.light-mode .top-nav {
 	background: rgba(255, 255, 255, 0.65);
 }

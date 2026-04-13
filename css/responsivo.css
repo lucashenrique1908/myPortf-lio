@@ -1,3 +1,52 @@
+	@media (max-width: 420px) {
+		.close-menu {
+			display: none;
+			position: fixed;
+			top: 18px;
+			right: 24px;
+			background: none;
+			border: none;
+			color: var(--text);
+			font-size: 2.2rem;
+			cursor: pointer;
+			z-index: 100;
+			padding: 0 0.2em;
+			line-height: 1;
+			transition: color 0.2s;
+		}
+		.nav-actions.active ~ .close-menu,
+		.nav-actions.active .close-menu {
+			display: block;
+		}
+		.hamburger.active {
+			visibility: hidden;
+			pointer-events: none;
+		}
+		.close-menu:active,
+		.close-menu:focus {
+			color: var(--gold);
+			outline: none;
+		}
+	}
+	.close-menu {
+		position: absolute;
+		top: 14px;
+		right: 18px;
+		background: none;
+		border: none;
+		color: var(--text);
+		font-size: 2.1rem;
+		cursor: pointer;
+		z-index: 41;
+		padding: 0 0.2em;
+		line-height: 1;
+		transition: color 0.2s;
+	}
+	.close-menu:active,
+	.close-menu:focus {
+		color: var(--gold);
+		outline: none;
+	}
 
 
 /* Large tablets / small laptops */
@@ -193,4 +242,43 @@
 	.project-body {
 		padding: 0.8rem;
 	}
+
+	/* Hamburger menu visibility */
+		.brand-chip {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+		.hamburger {
+			display: flex;
+			margin-left: 0.5rem;
+		}
+		.nav-actions {
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			top: 0;
+			right: 0;
+			height: 100vh;
+			background: rgba(8, 8, 8, 0.97); /* igual ao --bg, quase opaco */
+			border-radius: 16px 0 0 16px;
+			box-shadow: var(--shadow);
+			width: 85vw;
+			max-width: 320px;
+			padding: 2.5rem 1rem 1rem 1.2rem;
+			z-index: 39;
+			transform: translateX(100%);
+			opacity: 0.72;
+			transition: transform 0.35s cubic-bezier(.77,0,.18,1), opacity 0.25s;
+			pointer-events: none;
+		}
+		.nav-actions.active {
+			transform: translateX(0);
+			opacity: 0.93;
+			background: rgba(8, 8, 8, 0.98); /* igual ao --bg, quase opaco */
+			pointer-events: auto;
+		}
+		.top-nav {
+			position: relative;
+		}
 }

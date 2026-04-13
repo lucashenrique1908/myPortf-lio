@@ -35,9 +35,16 @@
 			<div class="brand-chip">
 				<i class="fa-solid fa-code"></i>
 				<span>Lucas Portfolio</span>
+				<!-- Botão hamburguer -->
+				<button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">
+					<span class="hamburger-bar"></span>
+					<span class="hamburger-bar"></span>
+					<span class="hamburger-bar"></span>
+				</button>
 			</div>
 
-			<ul class="nav-actions">
+			<ul class="nav-actions" id="main-menu">
+				<button class="close-menu" id="close-menu-btn" aria-label="Fechar menu" type="button">&times;</button>
 				<li>
 					<button
 						id="theme-toggle"
@@ -199,9 +206,11 @@
 						aria-controls="panel-html-css"
 						id="tab-html-css"
 						data-target="html-css"
-					>
+						>
 						<i class="devicon-html5-plain colored"></i>
-						<span>HTML & CSS</span>
+						<i class="devicon-css3-plain colored"></i>
+						<span>HTML</span>
+						<span>CSS</span>
 					</button>
 					<button
 						class="tech-tab"
