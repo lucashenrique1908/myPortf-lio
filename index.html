@@ -1,13 +1,631 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>myportfolio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Lucas Souza Front-End Developer portfolio with projects built using HTML, CSS, JavaScript and React."
+		/>
+		<title>Lucas Souza | Front-End Developer</title>
+
+		<!-- Icon library for UI icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+		/>
+		<!-- Devicon library for technology icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+		/>
+		<!-- Local styles (base + responsive adjustments) -->
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/responsivo.css" />
+		<!-- Main behavior for tabs, theme, overlays and project rendering -->
+		<script src="js/script.js" defer></script>
+</head>
+	<body>
+		<!-- Decorative background layers used by CSS for the clean gradient look -->
+		<div class="bg-layer bg-layer-1" aria-hidden="true"></div>
+		<div class="bg-layer bg-layer-2" aria-hidden="true"></div>
+
+		<!-- Top navigation: opens overlays and gives access to repo/CV -->
+		<nav class="top-nav" aria-label="Main navigation">
+			<div class="brand-chip">
+				<i class="fa-solid fa-code"></i>
+				<span>Lucas Portfolio</span>
+				<!-- Botão hamburguer -->
+				<button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-menu">
+					<span class="hamburger-bar"></span>
+					<span class="hamburger-bar"></span>
+					<span class="hamburger-bar"></span>
+				</button>
+			</div>
+
+			<ul class="nav-actions" id="main-menu">
+				<button class="close-menu" id="close-menu-btn" aria-label="Fechar menu" type="button">&times;</button>
+				<li>
+					<button
+						id="theme-toggle"
+						class="ghost-btn"
+						type="button"
+						aria-pressed="false"
+					>
+						<i class="fa-regular fa-moon"></i>
+						<span>Dark</span>
+					</button>
+				</li>
+				<li>
+					<button id="nav-about" class="ghost-btn" type="button">
+						About Me
+					</button>
+				</li>
+				<li>
+					<button id="nav-contact" class="ghost-btn" type="button">
+						Contact
+					</button>
+				</li>
+				<li>
+					<a
+						class="ghost-btn nav-link-btn"
+						href="docs/lucasfrontend (1).pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+					>Resume
+					</a>
+				</li>
+				<li>
+					<a
+						class="solid-btn nav-link-btn"
+						href="https://github.com/lucashenrique1908/myPortf-lio"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Code Version
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<header class="hero" id="home">
+			<section class="hero-content">
+				<p class="eyebrow">Front-End Portfolio</p>
+
+				<!-- 3D / highlight effect stays on the main title as requested -->
+				<h1 class="hero-title" aria-label="Lucas Souza Front-End Developer">
+					<span id="typing-text"></span>
+				</h1>
+
+				<p class="hero-description">
+					I don't have dreams, I have goals, and my next one is to be the key
+					player in a great project.
+				</p>
+
+				<div class="hero-cta">
+					<a
+						class="solid-btn"
+						href="mailto:contato.emphenrique@gmail.com?subject=Contact&body=Thank%20you%20for%20your%20interest!%20How%20can%20I%20help%20you%3F"
+					>
+						Email Me
+					</a>
+					<button id="hero-contact-btn" class="ghost-btn" type="button">
+						Open Contacts
+					</button>
+					<a
+						class="ghost-btn"
+						href="https://github.com/lucashenrique1908/myPortf-lio"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Portfolio Code
+					</a>
+				</div>
+
+				<div class="skill-marquee-wrapper" aria-label="Main skills">
+					<p class="skills-label">Core skills</p>
+					<div class="skill-marquee">
+						<div class="skill-track">
+							<span class="skill-pill"
+								><i class="devicon-html5-plain colored"></i> HTML</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-css3-plain colored"></i> CSS</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-javascript-plain colored"></i>
+								JavaScript</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-react-original colored"></i> React</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-typescript-plain colored"></i>
+								TypeScript</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-html5-plain colored"></i> HTML</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-css3-plain colored"></i> CSS</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-javascript-plain colored"></i>
+								JavaScript</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-react-original colored"></i> React</span
+							>
+							<span class="skill-pill"
+								><i class="devicon-typescript-plain colored"></i>
+								TypeScript</span
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Right side visual card with photo and quick positioning -->
+			<aside class="hero-panel" aria-label="Profile summary">
+				<div class="profile-card" id="profile-card">
+					<div class="profile-image-wrap">
+						<img src="img/profile.jpg" alt="Lucas Souza profile photo" />
+					</div>
+					<div class="profile-copy">
+						<p class="profile-role">Front-End Developer</p>
+						<p class="profile-location">
+							Portugal | Open to hybrid, onsite and international roles
+						</p>
+						<p class="profile-focus">
+							Focused on clean interfaces, responsive layouts and practical
+							JavaScript projects.
+						</p>
+					</div>
+				</div>
+			</aside>
+		</header>
+
+		<main class="main-content">
+			<!-- Technology tabs control which project grid is visible -->
+			<section class="projects-section" aria-labelledby="projects-title">
+				<div class="section-heading">
+					<p class="eyebrow">Work</p>
+					<h2 id="projects-title">Projects by technology</h2>
+					<p class="section-subtitle">
+						Each tab is ready to grow without changing the page layout.
+					</p>
+				</div>
+
+				<div class="tech-tabs" role="tablist" aria-label="Project categories">
+					<button
+						class="tech-tab is-active"
+						type="button"
+						role="tab"
+						aria-selected="true"
+						aria-controls="panel-html-css"
+						id="tab-html-css"
+						data-target="html-css"
+						>
+						<i class="devicon-html5-plain colored"></i>
+						<i class="devicon-css3-plain colored"></i>
+						<span>HTML</span>
+						<span>CSS</span>
+					</button>
+					<button
+						class="tech-tab"
+						type="button"
+						role="tab"
+						aria-selected="false"
+						aria-controls="panel-javascript"
+						id="tab-javascript"
+						data-target="javascript"
+					>
+						<i class="devicon-javascript-plain colored"></i>
+						<span>JavaScript</span>
+					</button>
+					<button
+						class="tech-tab"
+						type="button"
+						role="tab"
+						aria-selected="false"
+						aria-controls="panel-react"
+						id="tab-react"
+						data-target="react"
+					>
+						<i class="devicon-react-original colored"></i>
+						<span>React</span>
+					</button>
+				</div>
+
+				<!-- Project cards stay in HTML to keep structure/content out of JS -->
+				<section
+					id="panel-html-css"
+					class="project-panel is-active"
+					role="tabpanel"
+					aria-labelledby="tab-html-css"
+					data-panel="html-css"
+				>
+					<div class="project-grid" id="projects-html-css">
+						<!-- HTML/CSS: edit links in each card when needed -->
+						<article class="project-card reveal-on-scroll" data-tilt-card>
+							<div class="project-image">
+								<img
+									src="img/imgProjects/Android-img.jpeg"
+									alt="Curiosidades do Android project preview"
+									loading="lazy"
+								/>
+							</div>
+							<div class="project-body">
+								<h3 class="project-title">Curiosidades do Android</h3>
+								<p class="project-description">
+									Responsive layout project built to practice HTML structure and
+									CSS styling.
+								</p>
+								<div class="project-tags" aria-label="Project technologies">
+									<span class="tag">HTML</span>
+									<span class="tag">CSS</span>
+									<span class="tag">Responsive</span>
+								</div>
+								<div class="project-actions">
+									<a
+										href="https://lucashenrique1908.github.io/BlogAndroid/"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open live version of Curiosidades do Android"
+									>
+										<span class="solid-btn">Live Project</span>
+									</a>
+									<a
+										href="https://github.com/lucashenrique1908/BlogAndroid"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open code version of Curiosidades do Android"
+									>
+										<span class="ghost-btn">Code Version</span>
+									</a>
+								</div>
+							</div>
+						</article>
+
+						<article class="project-card reveal-on-scroll" data-tilt-card>
+							<div class="project-image">
+								<img
+									src="img/imgProjects/HdcProject.jpeg"
+									alt="HDC Project preview"
+									loading="lazy"
+								/>
+							</div>
+							<div class="project-body">
+								<h3 class="project-title">HDC Project</h3>
+								<p class="project-description">
+									One of my first HTML and CSS projects focused on layout
+									foundations and page structure.
+								</p>
+								<div class="project-tags" aria-label="Project technologies">
+									<span class="tag">HTML</span>
+									<span class="tag">CSS</span>
+								</div>
+								<div class="project-actions">
+									<a
+										href="https://lucashenrique1908.github.io/HdcPRoject/"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open live version of HDC Project"
+									>
+										<span class="solid-btn">Live Project</span>
+									</a>
+									<a
+										href="https://github.com/lucashenrique1908/HdcPRoject"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open code version of HDC Project"
+									>
+										<span class="ghost-btn">Code Version</span>
+									</a>
+								</div>
+							</div>
+						</article>
+					</div>
+				</section>
+
+				<section
+					id="panel-javascript"
+					class="project-panel"
+					role="tabpanel"
+					aria-labelledby="tab-javascript"
+					data-panel="javascript"
+					hidden
+				>
+					<div class="project-grid" id="projects-javascript">
+						<!-- JavaScript: this image is your To-Do App preview -->
+						<article class="project-card reveal-on-scroll" data-tilt-card>
+							<div class="project-image">
+								<img
+									src="img/imgProjects/cristoRendentor.jpeg"
+									alt="To-Do App project preview"
+									loading="lazy"
+								/>
+							</div>
+							<div class="project-body">
+								<h3 class="project-title">To-Do App</h3>
+								<p class="project-description">
+									Task manager built with JavaScript with filters, search and
+									localStorage to save tasks.
+								</p>
+								<div class="project-tags" aria-label="Project technologies">
+									<span class="tag">JavaScript</span>
+									<span class="tag">DOM</span>
+									<span class="tag">localStorage</span>
+								</div>
+								<div class="project-actions">
+									<a
+										href="https://lucashenrique1908.github.io/TodoListAdvanced/"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open live version of To-Do App"
+									>
+										<span class="solid-btn">Live Project</span>
+									</a>
+									<a
+										href="https://github.com/lucashenrique1908/TodoListAdvanced"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open code version of To-Do App"
+									>
+										<span class="ghost-btn">Code Version</span>
+									</a>
+								</div>
+							</div>							
+						</article>
+						<article class="project-card reveal-on-scroll" data-tilt-card>
+							<div class="project-image">
+								<img
+									src="img/imgProjects/githubImg.png"
+									alt="GitHub Finder User project preview"
+									loading="lazy"
+								/>
+							</div>
+							<div class="project-body">
+								<h3 class="project-title">GitHub Finder User</h3>
+								<p class="project-description">
+									Find a GitHub user profile through the API and view profile
+									information in a simple JavaScript interface.
+								</p>
+								<div class="project-tags" aria-label="Project technologies">
+									<span class="tag">JavaScript</span>
+									<span class="tag">API</span>
+									<span class="tag">GitHub</span>
+								</div>
+								<div class="project-actions">
+									<a
+										href="https://lucashenrique1908.github.io/gitHub-User-Finder/"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open live version of GitHub Finder User"
+									>
+										<span class="solid-btn">Live Project</span>
+									</a>
+									<a
+										href="https://github.com/lucashenrique1908/gitHub-User-Finder.git"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open code version of GitHub Finder User"
+									>
+										<span class="ghost-btn">Code Version</span>
+									</a>
+								</div>
+							</div>
+						</article>
+						<article class="project-card reveal-on-scroll" data-tilt-card>
+							<div class="project-image">
+								<img
+									src="img/imgProjects/medidaVibranteImg.jpeg"
+									alt="GitHub Finder User project preview"
+									loading="lazy"
+								/>
+							</div>
+							<div class="project-body">
+								<h3 class="project-title">Medida Vibrante Lda</h3>
+								<p class="project-description">
+									Development of an institutional website for the company Medida Vibrante – Unipessoal Lda, focused on presenting services and attracting clients.
+
+								</p>
+								<div class="project-tags" aria-label="Project technologies">
+									<span class="tag">JavaScript</span>
+									<span class="tag">Firebase</span>
+									<span class="tag">Responsive Design</span>
+								</div>
+								<div class="project-actions">
+									<a
+										href="https://medidavibrante.com"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open live version of Medida Vibrante"
+									>
+										<span class="solid-btn">Live Project</span>
+									</a>
+									<a
+										href="https://github.com/lucashenrique1908/Medida-Vibrante-Lda.git"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open code version of Medida Vibrante"
+									>
+										<span class="ghost-btn">Code Version</span>
+									</a>
+								</div>
+							</div>
+						</article>
+					</div>
+					
+				</section>
+				
+
+				<section
+					id="panel-react"
+					class="project-panel"
+					role="tabpanel"
+					aria-labelledby="tab-react"
+					data-panel="react"
+					hidden
+				>
+					<div class="project-grid" id="projects-react">
+							<article class="project-card reveal-on-scroll" data-tilt-card>
+								<div class="project-image">
+									<img
+										src="img/imgProjects/imgStudioCedroMarcenaria.png"
+										alt="Studio Cedro Marcenaria project preview"
+										loading="lazy"
+									/>
+								</div>
+								<div class="project-body">
+									<h3 class="project-title">Studio Cedro Marcenaria</h3>
+									<p class="project-description">
+										Institutional site for a bespoke woodworking studio, focused on design,
+										craftsmanship and a premium customer experience.
+									</p>
+									<div class="project-tags" aria-label="Project technologies">
+										<span class="tag">React</span>
+										<span class="tag">UI</span>
+										<span class="tag">Responsive</span>
+									</div>
+									<div class="project-actions">
+										<a
+											href="https://www.studiocedromarcenaria.com/"
+											target="_blank"
+											rel="noopener noreferrer"
+											aria-label="Open the Studio Cedro Marcenaria website"
+										>
+											<span class="solid-btn">Live Project</span>
+										</a>
+									</div>
+								</div>
+							</article>
+						</div>
+					</section>
+
+					<div class="resume-card">
+						<div>
+							<p class="eyebrow">Resume</p>
+							<h3>Quick access to my CV</h3>
+							<p>Open the PDF version in a new tab.</p>
+						</div>
+						<div class="resume-actions">
+							<a
+								class="solid-btn"
+								href="./LucasFrontEnd.pdf"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Open Resume
+							</a>
+							<a
+								class="ghost-btn"
+								href="https://github.com/lucashenrique1908/myPortf-lio"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Portfolio Code Version
+							</a>
+						</div>
+					</div>
+			</section>
+		</main>
+
+		<!-- About overlay: text intentionally preserved exactly as requested -->
+		<section class="overlay-panel" id="about-section" aria-hidden="true">
+			<div class="overlay-backdrop" data-close="about"></div>
+			<div
+				class="overlay-card"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="about-title"
+			>
+				<button
+					class="close-btn"
+					id="close-about"
+					type="button"
+					aria-label="Close About Me"
+				>
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+
+				<h2 id="about-title">About me</h2>
+				<p class="Description">
+					Hello! My name is Lucas Souza, and I am a Junior Frontend Developer
+					transitioning into the tech industry, focused on building clean,
+					responsive, and user-friendly web interfaces. I work with React,
+					JavaScript, HTML, and CSS, developing practical projects that reflect
+					continuous learning and real-world problem solving.
+				</p>
+				<br />
+				<p class="Description">
+					I bring a strong background in leadership, management, and customer
+					service, with professional experience in Brazil and Portugal. This
+					experience shaped my sense of responsibility, autonomy, and
+					resilience, allowing me to approach challenges with a product-oriented
+					mindset and strong communication skills.
+				</p>
+				<br />
+				<p class="Description">
+					I am driven by consistency, code quality, and constant improvement,
+					always aiming to deliver reliable and well-structured solutions.
+				</p>
+			</div>
+		</section>
+
+		<!-- Contact overlay: hidden until the user clicks the Contact tab/button -->
+		<section class="overlay-panel" id="contact-section" aria-hidden="true">
+			<div class="overlay-backdrop" data-close="contact"></div>
+			<div
+				class="overlay-card overlay-card-contact"
+				role="dialog"
+				aria-modal="true"
+				aria-labelledby="contact-title"
+			>
+				<button
+					class="close-btn"
+					id="close-contact"
+					type="button"
+					aria-label="Close Contact panel"
+				>
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+
+				<h2 id="contact-title">Contact</h2>
+				<p class="contact-intro">Your message is welcome.</p>
+
+				<div class="contact-list">
+					<a class="contact-item" href="mailto:contato.emphenrique@gmail.com">
+						<i class="fa-regular fa-envelope"></i>
+						<span>contato.emphenrique@gmail.com</span>
+					</a>
+
+					<a class="contact-item" href="tel:+351929217362">
+						<i class="fa-solid fa-phone"></i>
+						<span>(+351) 929 217 362</span>
+					</a>
+
+					<a
+						class="contact-item"
+						href="https://www.linkedin.com/in/lucassouzadevfullstack/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<i class="fa-brands fa-linkedin"></i>
+						<span>linkedin.com/in/lucassouzadevfullstack</span>
+					</a>
+
+					<a
+						class="contact-item"
+						href="https://github.com/lucashenrique1908"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<i class="fa-brands fa-github"></i>
+						<span>github.com/lucashenrique1908</span>
+					</a>
+				</div>
+			</div>
+		</section>
+</body>
 </html>

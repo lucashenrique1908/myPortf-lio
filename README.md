@@ -1,16 +1,34 @@
-# React + Vite
+Lucas Henrique — Front-End Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio showcasing my work and development journey as a Front-End Developer.
 
-Currently, two official plugins are available:
+The portfolio brings together projects built with HTML, CSS, JavaScript and React, including websites developed for real businesses.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Featured Projects
 
-## React Compiler
+Medida Vibrante Lda
+Website developed for an air conditioning company based in Lisbon, Portugal.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Live Website
 
-## Expanding the ESLint configuration
+Studio Cedro Marcenaria
+Website developed for a custom furniture company based in Rio de Janeiro, Brazil.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Live Website
+
+Other Projects
+GitHub User Finder — GitHub API integration with JavaScript
+To-Do App — JavaScript, DOM and localStorage
+Curiosidades do Android — HTML and CSS responsive layout
+HDC Project — HTML and CSS layout project
+Technologies
+
+HTML · CSS · JavaScript · React · TypeScript
+
+Portfolio
+
+https://lucashenrique1908.github.io/myPortf-lio/
+
+GitHub
+
+https://github.com/lucashenrique1908
