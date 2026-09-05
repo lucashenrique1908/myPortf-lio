@@ -7,7 +7,7 @@
 }
 
 .section {
-  padding-block: var(--space-xl);
+  padding-block: var(--section-spacing);
 }
 
 .full-width {
