@@ -3,11 +3,14 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
+import { VisitorProvider } from './context/VisitorContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter basename="/myPortf-lio">
-      <App />
+      <VisitorProvider>
+        <App />
+      </VisitorProvider>
     </BrowserRouter>
   </StrictMode>,
 )
