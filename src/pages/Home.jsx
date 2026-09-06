@@ -1,25 +1,12 @@
-import Button from '../components/ui/Button/Button'
-import Container from '../components/ui/Container/Container'
-import SectionTitle from '../components/ui/SectionTitle/SectionTitle'
-import Tag from '../components/ui/Tag/Tag'
+import { useContext } from 'react'
+import { VisitorContext } from '../context/VisitorContext'
+import IntroExperience from '../components/common/IntroExperience/IntroExperience'
+import { ClientExperience, RecruiterExperience } from '../components/common/VisitorExperience/VisitorExperience'
 
 export default function Home() {
-  return (
-    <main className="section">
-      <Container>
-        <SectionTitle label="Selected Work" title="Projects" />
+  const { visitorType } = useContext(VisitorContext)
 
-        <div>
-          <Button>Primary Button</Button>
-          <Button variant="secondary">Secondary Button</Button>
-        </div>
-
-        <div>
-          <Tag>React</Tag>
-          <Tag>JavaScript</Tag>
-          <Tag>Firebase</Tag>
-        </div>
-      </Container>
-    </main>
-  )
+  if (visitorType === null) return <IntroExperience />
+  if (visitorType === 'recruiter') return <RecruiterExperience />
+  return <ClientExperience />
 }

@@ -1,0 +1,45 @@
+.visitor-experience {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  animation: visitor-enter var(--transition-normal) ease-out;
+}
+
+.visitor-content {
+  max-width: 64rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.visitor-muted {
+  color: var(--color-text-secondary);
+}
+
+.visitor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.visitor-content h1:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 4px;
+}
+
+@keyframes visitor-enter {
+  from { opacity: 0; transform: translateY(var(--space-xs)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767px) {
+  .visitor-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visitor-experience { animation: none; }
+  .visitor-actions .button { transition: none; }
+}
