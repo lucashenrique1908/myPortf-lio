@@ -1,0 +1,308 @@
+﻿=== GIT STATUS ===
+On branch feature/LPORT-17-visitor-context Your branch is up to date with 'origin/feature/LPORT-17-visitor-context'.  Changes not staged for commit:   (use "git add/rm <file>..." to update what will be committed)   (use "git restore <file>..." to discard changes in working directory) 	modified:   index.html 	modified:   src/components/ui/Button/Button.jsx 	deleted:    src/context/VisitorContext.jsx 	modified:   src/index.css 	modified:   src/main.jsx 	modified:   src/pages/Home.jsx  Untracked files:   (use "git add <file>..." to include in what will be committed) 	docs/sprint-2-validation.md 	src/components/common/IntroExperience/ 	src/components/common/VisitorExperience/ 	src/components/common/VisitorModeSwitcher/ 	src/components/common/VisitorSelector/ 	src/context/VisitorContext.js 	src/context/VisitorProvider.jsx 	src/styles/visitor.css  no changes added to commit (use "git add" and/or "git commit -a")
+
+=== GIT DIFF STAT ===
+ index.html                          |  2 +-  src/components/ui/Button/Button.jsx |  2 +-  src/context/VisitorContext.jsx      | 15 ---------------  src/index.css                       |  1 +  src/main.jsx                        |  2 +-  src/pages/Home.jsx                  | 29 ++++++++---------------------  6 files changed, 12 insertions(+), 39 deletions(-)
+
+=== GIT DIFF ===
+diff --git a/index.html b/index.html index f68f35e..16414c5 100644 --- a/index.html +++ b/index.html @@ -1,5 +1,5 @@  <!doctype html> -<html lang="en"> +<html lang="pt-BR">    <head>      <meta charset="UTF-8" />      <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> diff --git a/src/components/ui/Button/Button.jsx b/src/components/ui/Button/Button.jsx index f5a888c..86a4e93 100644 --- a/src/components/ui/Button/Button.jsx +++ b/src/components/ui/Button/Button.jsx @@ -1,6 +1,6 @@  function Button({ children, variant = 'primary', onClick }) {    return ( -    <button className={`button button--${variant}`} onClick={onClick}> +    <button type="button" className={`button button--${variant}`} onClick={onClick}>        {children}      </button>    ) diff --git a/src/context/VisitorContext.jsx b/src/context/VisitorContext.jsx deleted file mode 100644 index ea967e1..0000000 --- a/src/context/VisitorContext.jsx +++ /dev/null @@ -1,15 +0,0 @@ -import { createContext, useState } from 'react' - -// O contexto e o provider ficam juntos neste arquivo. -// eslint-disable-next-line react-refresh/only-export-components -export const VisitorContext = createContext(null) - -export function VisitorProvider({ children }) { -  const [visitorType, setVisitorType] = useState(null) - -  return ( -    <VisitorContext.Provider value={{ visitorType, setVisitorType }}> -      {children} -    </VisitorContext.Provider> -  ) -} diff --git a/src/index.css b/src/index.css index c9b5750..f78a18b 100644 --- a/src/index.css +++ b/src/index.css @@ -4,3 +4,4 @@  @import './styles/layout.css';  @import './styles/globals.css';  @import './styles/components.css'; +@import './styles/visitor.css'; diff --git a/src/main.jsx b/src/main.jsx index d1fa778..d51dcbc 100644 --- a/src/main.jsx +++ b/src/main.jsx @@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'  import { BrowserRouter } from 'react-router-dom'  import './index.css'  import App from './App.jsx' -import { VisitorProvider } from './context/VisitorContext.jsx' +import { VisitorProvider } from './context/VisitorProvider.jsx'    createRoot(document.getElementById('root')).render(    <StrictMode> diff --git a/src/pages/Home.jsx b/src/pages/Home.jsx index 81ec2da..2a647eb 100644 --- a/src/pages/Home.jsx +++ b/src/pages/Home.jsx @@ -1,25 +1,12 @@ -import Button from '../components/ui/Button/Button' -import Container from '../components/ui/Container/Container' -import SectionTitle from '../components/ui/SectionTitle/SectionTitle' -import Tag from '../components/ui/Tag/Tag' +import { useContext } from 'react' +import { VisitorContext } from '../context/VisitorContext' +import IntroExperience from '../components/common/IntroExperience/IntroExperience' +import { ClientExperience, RecruiterExperience } from '../components/common/VisitorExperience/VisitorExperience'    export default function Home() { -  return ( -    <main className="section"> -      <Container> -        <SectionTitle label="Selected Work" title="Projects" /> +  const { visitorType } = useContext(VisitorContext)   -        <div> -          <Button>Primary Button</Button> -          <Button variant="secondary">Secondary Button</Button> -        </div> - -        <div> -          <Tag>React</Tag> -          <Tag>JavaScript</Tag> -          <Tag>Firebase</Tag> -        </div> -      </Container> -    </main> -  ) +  if (visitorType === null) return <IntroExperience /> +  if (visitorType === 'recruiter') return <RecruiterExperience /> +  return <ClientExperience />  }
+
+=== ARQUIVOS COMMON ===
+         
+
+=== VisitorContext.js ===
+import { createContext } from 'react'
+
+export const VisitorContext = createContext(null)
+
+
+=== VisitorProvider.jsx ===
+import { useEffect, useState } from 'react'
+import { VisitorContext } from './VisitorContext'
+
+const STORAGE_KEY = 'visitorType'
+
+function normalizeVisitorType(value) {
+  return value === 'recruiter' || value === 'client' ? value : null
+}
+
+function readVisitorType() {
+  try {
+    return normalizeVisitorType(localStorage.getItem(STORAGE_KEY))
+  } catch {
+    return null
+  }
+}
+
+export function VisitorProvider({ children }) {
+  const [visitorType, setVisitorState] = useState(readVisitorType)
+
+  function setVisitorType(value) {
+    setVisitorState(normalizeVisitorType(value))
+  }
+
+  useEffect(() => {
+    try {
+      if (visitorType === null) {
+        localStorage.removeItem(STORAGE_KEY)
+      } else {
+        localStorage.setItem(STORAGE_KEY, visitorType)
+      }
+    } catch {
+      // A experiÃªncia continua em memÃ³ria se o armazenamento estiver indisponÃ­vel.
+    }
+  }, [visitorType])
+
+  return (
+    <VisitorContext.Provider value={{ visitorType, setVisitorType }}>
+      {children}
+    </VisitorContext.Provider>
+  )
+}
+
+
+=== VisitorSelector ===
+=== VisitorSelector.jsx === import { useContext } from 'react'
+import { VisitorContext } from '../../../context/VisitorContext'
+import Button from '../../ui/Button/Button'
+
+export default function VisitorSelector() {
+  const { setVisitorType } = useContext(VisitorContext)
+
+  return (
+    <div className="visitor-actions" role="group" aria-labelledby="visitor-heading">
+      <Button onClick={() => setVisitorType('recruiter')}>Estou recrutando</Button>
+      <Button variant="secondary" onClick={() => setVisitorType('client')}>
+        Preciso de um desenvolvedor
+      </Button>
+    </div>
+  )
+}
+
+
+=== IntroExperience ===
+=== IntroExperience.jsx === import ExperienceLayout from '../VisitorExperience/ExperienceLayout'
+import VisitorSelector from '../VisitorSelector/VisitorSelector'
+
+export default function IntroExperience() {
+  return (
+    <ExperienceLayout label="Antes de continuar..." title="O que trouxe vocÃª atÃ© aqui?">
+      <VisitorSelector />
+    </ExperienceLayout>
+  )
+}
+
+
+=== VisitorExperience ===
+=== ExperienceLayout.jsx === import { useEffect, useRef } from 'react'
+import Container from '../../ui/Container/Container'
+
+export default function ExperienceLayout({ label, title, children }) {
+  const headingRef = useRef(null)
+
+  useEffect(() => {
+    headingRef.current.focus({ preventScroll: true })
+  }, [])
+
+  return (
+    <main className="section visitor-experience" aria-labelledby="visitor-heading">
+      <Container>
+        <div className="visitor-content">
+          <p className="text-h3">{'<Lucas />'}</p>
+          <p className="text-label visitor-muted">{label}</p>
+          <h1 id="visitor-heading" className="text-h1" tabIndex={-1} ref={headingRef}>
+            {title}
+          </h1>
+          {children}
+        </div>
+      </Container>
+    </main>
+  )
+}
+ === VisitorExperience.jsx === import ExperienceLayout from './ExperienceLayout'
+import VisitorModeSwitcher from '../VisitorModeSwitcher/VisitorModeSwitcher'
+
+export function RecruiterExperience() {
+  return (
+    <ExperienceLayout label="Modo recrutador" title="ExperiÃªncia para recrutadores">
+      <p className="text-body visitor-muted">VocÃª estÃ¡ no modo recrutador. O conteÃºdo desta experiÃªncia serÃ¡ desenvolvido nas prÃ³ximas sprints.</p>
+      <VisitorModeSwitcher />
+    </ExperienceLayout>
+  )
+}
+
+export function ClientExperience() {
+  return (
+    <ExperienceLayout label="Modo cliente" title="ExperiÃªncia para clientes">
+      <p className="text-body visitor-muted">VocÃª estÃ¡ no modo cliente. O conteÃºdo desta experiÃªncia serÃ¡ desenvolvido nas prÃ³ximas sprints.</p>
+      <VisitorModeSwitcher />
+    </ExperienceLayout>
+  )
+}
+
+
+=== VisitorModeSwitcher ===
+=== VisitorModeSwitcher.jsx === import { useContext } from 'react'
+import { VisitorContext } from '../../../context/VisitorContext'
+import Button from '../../ui/Button/Button'
+
+export default function VisitorModeSwitcher() {
+  const { visitorType, setVisitorType } = useContext(VisitorContext)
+  if (visitorType === null) return null
+
+  const nextType = visitorType === 'recruiter' ? 'client' : 'recruiter'
+
+  return (
+    <div className="visitor-actions" role="group" aria-label="Alterar experiÃªncia">
+      <Button onClick={() => setVisitorType(nextType)}>
+        {nextType === 'client' ? 'Mudar para modo cliente' : 'Mudar para modo recrutador'}
+      </Button>
+      <Button variant="secondary" onClick={() => setVisitorType(null)}>Escolher novamente</Button>
+    </div>
+  )
+}
+
+
+=== Home.jsx ===
+import { useContext } from 'react'
+import { VisitorContext } from '../context/VisitorContext'
+import IntroExperience from '../components/common/IntroExperience/IntroExperience'
+import { ClientExperience, RecruiterExperience } from '../components/common/VisitorExperience/VisitorExperience'
+
+export default function Home() {
+  const { visitorType } = useContext(VisitorContext)
+
+  if (visitorType === null) return <IntroExperience />
+  if (visitorType === 'recruiter') return <RecruiterExperience />
+  return <ClientExperience />
+}
+
+
+=== main.jsx ===
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import './index.css'
+import App from './App.jsx'
+import { VisitorProvider } from './context/VisitorProvider.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter basename="/myPortf-lio">
+      <VisitorProvider>
+        <App />
+      </VisitorProvider>
+    </BrowserRouter>
+  </StrictMode>,
+)
+
+
+=== Button.jsx ===
+function Button({ children, variant = 'primary', onClick }) {
+  return (
+    <button type="button" className={`button button--${variant}`} onClick={onClick}>
+      {children}
+    </button>
+  )
+}
+
+export default Button
+
+
+=== visitor.css ===
+.visitor-experience {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  animation: visitor-enter var(--transition-normal) ease-out;
+}
+
+.visitor-content {
+  max-width: 64rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.visitor-muted {
+  color: var(--color-text-secondary);
+}
+
+.visitor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.visitor-content h1:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 4px;
+}
+
+@keyframes visitor-enter {
+  from { opacity: 0; transform: translateY(var(--space-xs)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 767px) {
+  .visitor-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visitor-experience { animation: none; }
+  .visitor-actions .button { transition: none; }
+}
+
+
+=== index.css ===
+@import './styles/reset.css';
+@import './styles/variables.css';
+@import './styles/typography.css';
+@import './styles/layout.css';
+@import './styles/globals.css';
+@import './styles/components.css';
+@import './styles/visitor.css';
+
+
+=== VALIDATION ===
+# Sprint 2 â€” Visitor Experience
+
+ValidaÃ§Ã£o realizada em 2026-09-06 na branch `feature/LPORT-17-visitor-context`.
+
+## Qualidade
+
+- `npm.cmd run build`: passou.
+- `npm.cmd run lint`: passou, sem desabilitar regras.
+- `git diff --check`: passou.
+- Nenhuma dependÃªncia adicionada. Sem merge ou deploy.
+
+## Navegador
+
+Testes automatizados com Playwright disponÃ­vel no cache local e Chrome headless, sem instalar dependÃªncias no projeto.
+
+Os cenÃ¡rios abaixo passaram nas larguras 375, 768, 1024 e 1440px, com altura de 900px:
+
+- Primeira visita mostra a introduÃ§Ã£o.
+- SeleÃ§Ã£o de recruiter por Tab + Enter e client por Tab + EspaÃ§o.
+- PersistÃªncia dos dois modos apÃ³s refresh.
+- Troca nos dois sentidos.
+- Escolher novamente remove a chave `visitorType`; refresh mantÃ©m a introduÃ§Ã£o.
+- Valor invÃ¡lido no localStorage retorna Ã  introduÃ§Ã£o e remove a chave invÃ¡lida.
+- Foco no tÃ­tulo apÃ³s mudar de experiÃªncia e foco visÃ­vel nos botÃµes.
+- Sem overflow horizontal nos elementos principais, tÃ­tulos, textos e botÃµes, nas trÃªs experiÃªncias.
+- Reduced motion desativa a animaÃ§Ã£o e as transiÃ§Ãµes dos botÃµes, mantendo a seleÃ§Ã£o funcional.
+
+TambÃ©m passou o cenÃ¡rio com acesso ao localStorage bloqueado: seleÃ§Ã£o e troca continuam em memÃ³ria, sem erros JavaScript. Nesse caso, a preferÃªncia nÃ£o persiste apÃ³s refresh.
+
+Capturas da introduÃ§Ã£o em 375 e 1440px foram inspecionadas visualmente. As cores reutilizam os tokens preto, branco e cinza do Design System. A validaÃ§Ã£o de acessibilidade incluiu semÃ¢ntica, teclado, foco e reduced motion; nÃ£o incluiu teste com leitor de tela real.
+
+## Arquitetura
+
+- `VisitorContext.js` exporta apenas o contexto e `VisitorProvider.jsx` exporta o componente, mantendo compatibilidade com a regra de React Refresh.
+- O Provider centraliza normalizaÃ§Ã£o, leitura inicial e sincronizaÃ§Ã£o do localStorage.
+- Home apenas seleciona a experiÃªncia. Os componentes compartilham layout, Button, Container e tokens existentes.
+- As experiÃªncias recruiter e client sÃ£o provisÃ³rias; o Hero e as seÃ§Ãµes finais continuam fora desta sprint.
+

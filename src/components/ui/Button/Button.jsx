@@ -1,6 +1,6 @@
 function Button({ children, variant = 'primary', onClick }) {
   return (
-    <button className={`button button--${variant}`} onClick={onClick}>
+    <button type="button" className={`button button--${variant}`} onClick={onClick}>
       {children}
     </button>
   )
