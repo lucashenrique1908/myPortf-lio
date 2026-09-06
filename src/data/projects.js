@@ -13,6 +13,14 @@ export const developerProjects = [
 ]
 
 export const clientProjects = [
-  { id: 'medida-vibrante', title: 'Medida Vibrante', liveUrl: 'https://medidavibrante.com/' },
-  { id: 'studio-cedro', title: 'Studio Cedro Marcenaria', liveUrl: 'https://www.studiocedromarcenaria.com/' },
+  {
+    id: 'medida-vibrante', slug: 'medida-vibrante', title: 'Medida Vibrante',
+    category: null, description: null, technologies: [], image: null,
+    liveUrl: 'https://medidavibrante.com/', repositoryUrl: null,
+  },
+  {
+    id: 'studio-cedro', slug: 'studio-cedro', title: 'Studio Cedro Marcenaria',
+    category: null, description: null, technologies: [], image: null,
+    liveUrl: 'https://www.studiocedromarcenaria.com/', repositoryUrl: null,
+  },
 ]
