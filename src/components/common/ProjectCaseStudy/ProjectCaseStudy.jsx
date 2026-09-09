@@ -1,10 +1,13 @@
 import Button from '../../ui/Button/Button'
 import Tag from '../../ui/Tag/Tag'
 import SectionTitle from '../../ui/SectionTitle/SectionTitle'
+import TextReveal from '../../animations/TextReveal'
+import useScrollReveal from '../../../hooks/useScrollReveal'
 
 function CaseStudySection({ id, title, children }) {
+  const revealRef = useScrollReveal()
   return (
-    <section className="project-section" aria-labelledby={id}>
+    <section ref={revealRef} className="project-section" aria-labelledby={id}>
       <SectionTitle id={id} label="Case study" title={title} />
       <div className="project-content">{children}</div>
     </section>
@@ -30,7 +33,7 @@ export default function ProjectCaseStudy({ project, headingRef }) {
     <article aria-labelledby="project-title">
       <header className="project-hero">
         {project.category && <p className="text-label project-muted">{project.category}</p>}
-        <h1 id="project-title" className="text-h1" tabIndex={-1} ref={headingRef}>{project.title}</h1>
+        <h1 id="project-title" className="text-h1" tabIndex={-1} ref={headingRef}><TextReveal key={project.slug}>{project.title}</TextReveal></h1>
         {project.summary && <p className="project-summary">{project.summary}</p>}
       </header>
       {sections.map(([id, title, content]) => (

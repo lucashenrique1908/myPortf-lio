@@ -2,7 +2,6 @@
   min-height: 100svh;
   display: flex;
   align-items: center;
-  animation: visitor-enter var(--transition-normal) ease-out;
 }
 
 .visitor-content {
@@ -27,11 +26,6 @@
   outline-offset: 4px;
 }
 
-@keyframes visitor-enter {
-  from { opacity: 0; transform: translateY(var(--space-xs)); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 @media (max-width: 767px) {
   .visitor-actions {
     flex-direction: column;
@@ -40,6 +34,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .visitor-experience { animation: none; }
   .visitor-actions .button { transition: none; }
 }
