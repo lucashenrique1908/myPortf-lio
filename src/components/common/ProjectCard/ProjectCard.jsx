@@ -1,8 +1,10 @@
 import Tag from '../../ui/Tag/Tag'
 import { Link } from 'react-router-dom'
-import { recruiterContent } from '../../../data/recruiter'
+import useLanguage from '../../../hooks/useLanguage'
 
-export default function ProjectCard({ project, number, labels = recruiterContent.projects }) {
+export default function ProjectCard({ project, number, labels }) {
+  const { copy } = useLanguage()
+  const linkLabels = labels ?? copy.recruiterContent.projects
   return (
     <article className="developer-project" aria-labelledby={project.slug + '-title'}>
       <div className="recruiter-row text-label recruiter-muted">
@@ -12,14 +14,14 @@ export default function ProjectCard({ project, number, labels = recruiterContent
       <h3 id={project.slug + '-title'} className="text-h3">{project.title}</h3>
       {project.description && <p className="recruiter-muted">{project.description}</p>}
       {project.technologies.length > 0 && (
-        <ul className="recruiter-tags" aria-label="Tecnologias do projeto">
+        <ul className="recruiter-tags" aria-label={copy.common.technologies}>
           {project.technologies.map(technology => <li key={technology}><Tag>{technology}</Tag></li>)}
         </ul>
       )}
       <div className="recruiter-actions">
-        <Link className="recruiter-link" to={`/project/${project.slug}`} aria-label={`Ver case study: ${project.title}`}>Ver case study</Link>
-        {project.liveUrl && <a className="recruiter-link" href={project.liveUrl}>{labels.live}</a>}
-        {project.repositoryUrl && <a className="recruiter-link" href={project.repositoryUrl}>{labels.repository}</a>}
+        <Link className="recruiter-link" to={`/project/${project.slug}`} aria-label={`${copy.common.caseStudy}: ${project.title}`}>{copy.common.caseStudy}</Link>
+        {project.liveUrl && <a className="recruiter-link" href={project.liveUrl}>{linkLabels.live}</a>}
+        {project.repositoryUrl && <a className="recruiter-link" href={project.repositoryUrl}>{linkLabels.repository}</a>}
       </div>
     </article>
   )

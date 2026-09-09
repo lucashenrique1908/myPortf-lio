@@ -1,9 +1,11 @@
+import useLanguage from '../../../hooks/useLanguage'
 import ExperienceLayout from '../VisitorExperience/ExperienceLayout'
 import VisitorSelector from '../VisitorSelector/VisitorSelector'
 
 export default function IntroExperience() {
+  const { copy: { intro } } = useLanguage()
   return (
-    <ExperienceLayout label="Antes de continuar..." title="O que trouxe você até aqui?">
+    <ExperienceLayout label={intro.label} title={intro.title}>
       <VisitorSelector />
     </ExperienceLayout>
   )

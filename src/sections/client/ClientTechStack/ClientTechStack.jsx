@@ -1,8 +1,10 @@
+import useLanguage from '../../../hooks/useLanguage'
 import ClientSection from '../ClientSection'
 import Tag from '../../../components/ui/Tag/Tag'
-import { clientContent, clientTechnologies } from '../../../data/client'
+import { clientTechnologies } from '../../../data/client'
 
 export default function ClientTechStack() {
+  const { copy: { clientContent } } = useLanguage()
   return (
     <ClientSection id="client-stack" {...clientContent.stack}>
       <p className="client-muted client-copy">{clientContent.stack.description}</p>

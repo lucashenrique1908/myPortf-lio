@@ -1,9 +1,9 @@
+import useLanguage from '../../../hooks/useLanguage'
 import ClientSection from '../ClientSection'
 import ProjectCard from '../../../components/common/ProjectCard/ProjectCard'
-import { clientProjects } from '../../../data/projects'
-import { clientContent } from '../../../data/client'
 
 export default function ClientProjects() {
+  const { copy: { clientProjects, clientContent } } = useLanguage()
   return (
     <ClientSection id="client-projects" {...clientContent.projects}>
       <div className="client-projects">

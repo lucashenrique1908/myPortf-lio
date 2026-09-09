@@ -1,7 +1,8 @@
+import useLanguage from '../../../hooks/useLanguage'
 import ClientSection from '../ClientSection'
-import { clientContent } from '../../../data/client'
 
 export default function ClientAbout() {
+  const { copy: { clientContent } } = useLanguage()
   return (
     <ClientSection id="client-about" {...clientContent.about}>
       <div className="client-about-copy">

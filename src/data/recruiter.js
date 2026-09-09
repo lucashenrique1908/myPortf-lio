@@ -1,12 +1,10 @@
-// Conteúdo separado da apresentação para facilitar uma futura versão PT/EN.
-// Pendências reais: URL do currículo, email e perfil pessoal do LinkedIn.
+// Conteúdo-base em português; traduções centralizadas em data/i18n.
+// Contatos centralizados em contactConfig. URL do currículo ainda pendente.
 export const recruiterProfile = {
   brand: '<Lucas />',
   title: 'Front-End Developer',
   location: 'Portugal',
   resumeUrl: null,
-  email: null,
-  linkedinUrl: null,
 }
 
 export const recruiterContent = {

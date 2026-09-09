@@ -1,4 +1,4 @@
-// Conteúdo separado da apresentação, sem implementar tradução nesta sprint.
+// Conteúdo-base; traduções centralizadas em data/i18n.
 export const clientContent = {
   brand: '<Lucas />',
   hero: {

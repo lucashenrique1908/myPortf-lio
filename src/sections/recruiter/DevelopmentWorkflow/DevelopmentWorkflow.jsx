@@ -1,8 +1,8 @@
+import useLanguage from '../../../hooks/useLanguage'
 import RecruiterSection from '../RecruiterSection'
-import { workflow } from '../../../data/workflow'
-import { recruiterContent } from '../../../data/recruiter'
 
 export default function DevelopmentWorkflow() {
+  const { copy: { workflow, recruiterContent } } = useLanguage()
   return (
     <RecruiterSection id="workflow" {...recruiterContent.workflow}>
       <p className="recruiter-muted">{recruiterContent.workflow.description}</p>

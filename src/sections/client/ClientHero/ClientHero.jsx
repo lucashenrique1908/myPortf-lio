@@ -1,10 +1,11 @@
+import useLanguage from '../../../hooks/useLanguage'
 import { useEffect, useRef } from 'react'
 import Container from '../../../components/ui/Container/Container'
 import Button from '../../../components/ui/Button/Button'
 import TextReveal from '../../../components/animations/TextReveal'
-import { clientContent } from '../../../data/client'
 
 export default function ClientHero() {
+  const { copy: { clientContent } } = useLanguage()
   const headingRef = useRef(null)
   const content = clientContent.hero
 
