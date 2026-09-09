@@ -9,6 +9,7 @@ import DevelopmentWorkflow from '../../../sections/recruiter/DevelopmentWorkflow
 import Resume from '../../../sections/recruiter/Resume/Resume'
 import RecruiterCTA from '../../../sections/recruiter/RecruiterCTA/RecruiterCTA'
 import { recruiterProfile } from '../../../data/recruiter'
+import Marquee from '../../animations/Marquee'
 
 export default function RecruiterExperience() {
   return (
@@ -23,6 +24,7 @@ export default function RecruiterExperience() {
       </header>
       <main>
         <RecruiterHero />
+        <Marquee />
         <About />
         <Experience />
         <DeveloperProjects />

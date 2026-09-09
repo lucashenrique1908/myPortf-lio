@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import Container from '../../../components/ui/Container/Container'
 import Button from '../../../components/ui/Button/Button'
+import TextReveal from '../../../components/animations/TextReveal'
 import { recruiterContent, recruiterProfile } from '../../../data/recruiter'
 
 export default function RecruiterHero() {
@@ -18,7 +19,7 @@ export default function RecruiterHero() {
       <Container>
         <p className="text-label recruiter-muted">{recruiterContent.mode}</p>
         <h1 id="recruiter-title" className="text-display recruiter-hero-title" tabIndex={-1} ref={titleRef}>
-          <span>Front-End</span>{' '}<span>Developer</span>
+          <TextReveal>Front-End</TextReveal>{' '}<TextReveal index={1}>Developer</TextReveal>
         </h1>
         <div className="recruiter-hero-bottom">
           <p className="text-h3">{recruiterContent.hero.introduction}</p>

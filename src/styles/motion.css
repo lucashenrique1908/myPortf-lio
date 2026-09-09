@@ -1,0 +1,100 @@
+:root {
+  --motion-duration: 420ms;
+  --motion-duration-fast: 180ms;
+  --motion-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-distance: 18px;
+  --motion-stagger: 60ms;
+  --motion-marquee-duration: 32s;
+}
+
+/* Visible by default if JS, observers or motion are unavailable. */
+@keyframes motion-enter {
+  from { opacity: 0.25; transform: translateY(var(--motion-distance)); }
+  to { opacity: 1; transform: none; }
+}
+.motion-text { display: block; }
+.motion-text,
+.motion-revealed,
+.visitor-content > p,
+.visitor-content > h1,
+.visitor-content .button {
+  animation: motion-enter var(--motion-duration) var(--motion-easing) backwards;
+}
+.motion-text { animation-delay: calc(var(--motion-index, 0) * var(--motion-stagger)); }
+.visitor-content > p:nth-child(2) { animation-delay: var(--motion-stagger); }
+.visitor-content > h1 { animation-delay: calc(2 * var(--motion-stagger)); }
+.visitor-content .button { animation-delay: calc(3 * var(--motion-stagger)); }
+.visitor-content .button + .button { animation-delay: calc(4 * var(--motion-stagger)); }
+.visitor-content .button:focus-visible,
+.motion-revealed:focus-within { animation: none; }
+
+.developer-project { transition: transform var(--motion-duration-fast) var(--motion-easing), border-color var(--motion-duration-fast) ease; }
+.developer-project:focus-within { border-color: var(--color-text-primary); }
+.developer-project .recruiter-link { text-decoration-thickness: 1px; }
+
+.motion-marquee {
+  position: relative;
+  padding-block: var(--space-md);
+  border-block: 1px solid var(--color-border);
+}
+.motion-marquee-window { overflow: hidden; }
+.motion-marquee-track { display: flex; width: max-content; animation: motion-marquee var(--motion-marquee-duration) linear infinite; }
+.motion-marquee-group { display: flex; flex-shrink: 0; min-width: 100vw; align-items: center; justify-content: space-around; }
+.motion-marquee-group > span { white-space: nowrap; font-size: var(--font-size-h3); text-transform: uppercase; }
+.motion-marquee-divider { padding-inline: var(--space-md); color: var(--color-text-secondary); }
+.motion-marquee-control { display: flex; margin: var(--space-sm) auto 0; padding: var(--space-xs) var(--space-sm); font-size: var(--font-size-small); }
+.motion-marquee[data-paused="true"] .motion-marquee-track { animation-play-state: paused; }
+@keyframes motion-marquee { to { transform: translateX(-50%); } }
+.motion-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.motion-pointer-layer { display: none; }
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .motion-pointer-layer { display: block; position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: var(--z-cursor); }
+  .motion-pointer { position: absolute; top: 0; left: 0; width: 0; height: 0; opacity: 0; }
+  .motion-pointer[data-visible="true"] { opacity: 1; }
+  .motion-pointer span { display: block; width: 18px; height: 18px; border: 1px solid var(--color-text-secondary); border-radius: 50%; transform: translate(-50%, -50%); transition: transform var(--motion-duration-fast) var(--motion-easing), border-color var(--motion-duration-fast) ease; }
+  .motion-pointer[data-interactive="true"] span { transform: translate(-50%, -50%) scale(1.4); border-color: var(--color-text-primary); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .developer-project:hover { transform: translateY(-3px); border-color: var(--color-text-primary); }
+  .developer-project .recruiter-link:hover { text-decoration-thickness: 2px; }
+  :is(.recruiter-hero, .client-hero, .project-actions) .button { position: relative; }
+  :is(.recruiter-hero, .client-hero, .project-actions) .button::after {
+    content: '';
+    position: absolute;
+    inset: auto var(--space-md) 10px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--motion-duration-fast) var(--motion-easing);
+  }
+  :is(.recruiter-hero, .client-hero, .project-actions) .button:hover::after { transform: scaleX(1); }
+}
+@media (max-width: 767px) {
+  :root { --motion-distance: 10px; --motion-duration: 320ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .motion-text,
+  .motion-revealed,
+  .visitor-content > p,
+  .visitor-content > h1,
+  .visitor-content .button,
+  .motion-marquee-track { animation: none; transform: none; opacity: 1; }
+  .developer-project, .button, .recruiter-link { transition: none; }
+  .motion-marquee-track { width: auto; }
+  .motion-marquee-group { min-width: 0; width: 100%; flex-wrap: wrap; justify-content: center; gap: var(--space-xs); padding-inline: var(--container-padding); }
+  .motion-marquee-group > span { white-space: normal; font-size: var(--font-size-body); }
+  .motion-marquee-divider { padding-inline: var(--space-xs); }
+  .motion-marquee-group + .motion-marquee-group, .motion-marquee-control, .motion-pointer-layer { display: none; }
+}

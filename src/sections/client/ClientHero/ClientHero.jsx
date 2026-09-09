@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import Container from '../../../components/ui/Container/Container'
 import Button from '../../../components/ui/Button/Button'
+import TextReveal from '../../../components/animations/TextReveal'
 import { clientContent } from '../../../data/client'
 
 export default function ClientHero() {
@@ -21,7 +22,7 @@ export default function ClientHero() {
       <Container>
         <p className="text-label client-muted">{content.label}</p>
         <h1 id="client-title" className="text-display client-hero-title" ref={headingRef} tabIndex={-1}>
-          {content.titleLines.map((line, index) => <span key={line}>{index > 0 && ' '}{line}</span>)}
+          {content.titleLines.map((line, index) => <TextReveal key={line} index={index}>{index > 0 && ' '}{line}</TextReveal>)}
         </h1>
         <div className="client-hero-introduction">
           <p className="text-h3">{content.description}</p>
