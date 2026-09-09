@@ -1,4 +1,5 @@
 import Tag from '../../ui/Tag/Tag'
+import { Link } from 'react-router-dom'
 import { recruiterContent } from '../../../data/recruiter'
 
 export default function ProjectCard({ project, number, labels = recruiterContent.projects }) {
@@ -15,12 +16,11 @@ export default function ProjectCard({ project, number, labels = recruiterContent
           {project.technologies.map(technology => <li key={technology}><Tag>{technology}</Tag></li>)}
         </ul>
       )}
-      {(project.liveUrl || project.repositoryUrl) && (
-        <div className="recruiter-actions">
-          {project.liveUrl && <a className="recruiter-link" href={project.liveUrl}>{labels.live}</a>}
-          {project.repositoryUrl && <a className="recruiter-link" href={project.repositoryUrl}>{labels.repository}</a>}
-        </div>
-      )}
+      <div className="recruiter-actions">
+        <Link className="recruiter-link" to={`/project/${project.slug}`} aria-label={`Ver case study: ${project.title}`}>Ver case study</Link>
+        {project.liveUrl && <a className="recruiter-link" href={project.liveUrl}>{labels.live}</a>}
+        {project.repositoryUrl && <a className="recruiter-link" href={project.repositoryUrl}>{labels.repository}</a>}
+      </div>
     </article>
   )
 }
