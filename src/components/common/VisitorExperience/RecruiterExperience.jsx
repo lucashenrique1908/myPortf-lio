@@ -1,3 +1,4 @@
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
 import Container from '../../ui/Container/Container'
 import VisitorModeSwitcher from '../VisitorModeSwitcher/VisitorModeSwitcher'
 import RecruiterHero from '../../../sections/recruiter/RecruiterHero/RecruiterHero'
@@ -18,7 +19,7 @@ export default function RecruiterExperience() {
         <Container>
           <div className="recruiter-row">
             <p className="text-h3">{recruiterProfile.brand}</p>
-            <VisitorModeSwitcher />
+            <div className="header-controls"><LanguageSwitcher /><VisitorModeSwitcher /></div>
           </div>
         </Container>
       </header>

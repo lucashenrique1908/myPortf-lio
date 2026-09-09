@@ -1,3 +1,4 @@
+import useLanguage from '../../../hooks/useLanguage'
 import Button from '../../ui/Button/Button'
 import Tag from '../../ui/Tag/Tag'
 import SectionTitle from '../../ui/SectionTitle/SectionTitle'
@@ -5,26 +6,28 @@ import TextReveal from '../../animations/TextReveal'
 import useScrollReveal from '../../../hooks/useScrollReveal'
 
 function CaseStudySection({ id, title, children }) {
+  const { copy: { caseStudy } } = useLanguage()
   const revealRef = useScrollReveal()
   return (
     <section ref={revealRef} className="project-section" aria-labelledby={id}>
-      <SectionTitle id={id} label="Case study" title={title} />
+      <SectionTitle id={id} label={caseStudy.label} title={title} />
       <div className="project-content">{children}</div>
     </section>
   )
 }
 
 export default function ProjectCaseStudy({ project, headingRef }) {
+  const { copy: { caseStudy, common } } = useLanguage()
   const sections = [
-    ['overview', 'Visão geral', project.description],
-    ['problem', 'Problema', project.problem],
-    ['solution', 'Solução', project.solution],
-    ['role', 'Minha atuação', project.role],
-    ['features', 'Funcionalidades', project.features],
-    ['technologies', 'Tecnologias', project.technologies],
-    ['challenges', 'Desafios', project.challenges],
-    ['result', 'Resultado', project.result],
-    ['planned-scope', 'Escopo planejado', project.plannedScope],
+    ['overview', caseStudy.overview, project.description],
+    ['problem', caseStudy.problem, project.problem],
+    ['solution', caseStudy.solution, project.solution],
+    ['role', caseStudy.role, project.role],
+    ['features', caseStudy.features, project.features],
+    ['technologies', caseStudy.technologies, project.technologies],
+    ['challenges', caseStudy.challenges, project.challenges],
+    ['result', caseStudy.result, project.result],
+    ['planned-scope', caseStudy.plannedScope, project.plannedScope],
   ].filter(([, , content]) => Array.isArray(content) ? content.some(item => item?.trim()) : content?.trim())
   // Imagens futuras devem ter src e alt reais; não são criados placeholders.
   const images = [project.image, ...project.screenshots].filter(item => item?.src?.trim() && item?.alt?.trim())
@@ -46,15 +49,15 @@ export default function ProjectCaseStudy({ project, headingRef }) {
         </CaseStudySection>
       ))}
       {images.length > 0 && (
-        <CaseStudySection id="project-images" title="Imagens do projeto">
+        <CaseStudySection id="project-images" title={caseStudy.images}>
           {images.map(item => <img key={item.src} src={item.src} alt={item.alt} loading="lazy" />)}
         </CaseStudySection>
       )}
       {(project.liveUrl || project.repositoryUrl) && (
-        <CaseStudySection id="project-links" title="Links do projeto">
+        <CaseStudySection id="project-links" title={caseStudy.links}>
           <div className="project-actions">
-            {project.liveUrl && <Button href={project.liveUrl}>Visitar site</Button>}
-            {project.repositoryUrl && <Button href={project.repositoryUrl} variant="secondary">Ver código</Button>}
+            {project.liveUrl && <Button href={project.liveUrl}>{common.live}</Button>}
+            {project.repositoryUrl && <Button href={project.repositoryUrl} variant="secondary">{common.repository}</Button>}
           </div>
         </CaseStudySection>
       )}

@@ -1,8 +1,10 @@
+import useLanguage from '../../../hooks/useLanguage'
 import RecruiterSection from '../RecruiterSection'
 import Button from '../../../components/ui/Button/Button'
-import { recruiterContent, recruiterProfile } from '../../../data/recruiter'
+import { recruiterProfile } from '../../../data/recruiter'
 
 export default function Resume() {
+  const { copy: { recruiterContent } } = useLanguage()
   const content = recruiterContent.resume
   return (
     <RecruiterSection id="resume" {...content}>

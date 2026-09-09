@@ -1,8 +1,8 @@
+import useLanguage from '../../../hooks/useLanguage'
 import ClientSection from '../ClientSection'
-import { clientProcess } from '../../../data/clientProcess'
-import { clientContent } from '../../../data/client'
 
 export default function HowIWork() {
+  const { copy: { clientProcess, clientContent } } = useLanguage()
   return (
     <ClientSection id="client-process" {...clientContent.process}>
       <ol className="client-process" role="list">

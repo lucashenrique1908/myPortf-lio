@@ -1,8 +1,8 @@
+import useLanguage from '../../../hooks/useLanguage'
 import ClientSection from '../ClientSection'
-import { services } from '../../../data/services'
-import { clientContent } from '../../../data/client'
 
 export default function Services() {
+  const { copy: { services, clientContent } } = useLanguage()
   return (
     <ClientSection id="client-services" {...clientContent.services}>
       <ol className="client-services" role="list">

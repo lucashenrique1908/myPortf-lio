@@ -1,8 +1,9 @@
+import useLanguage from '../../../hooks/useLanguage'
 import RecruiterSection from '../RecruiterSection'
 import Tag from '../../../components/ui/Tag/Tag'
-import { recruiterContent, techStack } from '../../../data/recruiter'
 
 export default function TechStack() {
+  const { copy: { recruiterContent, techStack } } = useLanguage()
   return (
     <RecruiterSection id="tech-stack" {...recruiterContent.stack}>
       <div className="recruiter-stack">

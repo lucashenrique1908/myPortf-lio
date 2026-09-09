@@ -1,0 +1,42 @@
+.language-switcher { display: inline-flex; gap: 4px; flex-shrink: 0; }
+.language-switcher button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--space-xs);
+  border: 1px solid var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-small);
+}
+.language-switcher button[aria-pressed="true"] { color: var(--color-background); background: var(--color-text-primary); font-weight: var(--font-weight-semibold); }
+.language-switcher button:focus-visible,
+.contact-form :where(input, textarea, button):focus-visible,
+.contact-channels a:focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 4px; }
+.header-controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); min-width: 0; }
+.visitor-language { margin-bottom: var(--space-md); }
+.project-nav { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-sm); }
+.contact-channels { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+.contact-form { display: grid; gap: var(--space-sm); width: 100%; max-width: 52rem; min-width: 0; margin-top: var(--space-md); }
+.contact-form > h3, .contact-field label { color: var(--color-text-primary); }
+.contact-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-sm); }
+.contact-field { display: flex; flex-direction: column; gap: var(--space-xs); min-width: 0; }
+.contact-field--wide { grid-column: 1 / -1; }
+.contact-field input, .contact-field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-sm);
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+}
+.contact-field textarea { resize: vertical; }
+.contact-field [aria-invalid="true"] { border-width: 2px; border-color: var(--color-text-primary); }
+.contact-error { color: var(--color-text-primary); font-size: var(--font-size-small); }
+.contact-status { min-height: 1.5em; }
+@media (max-width: 767px) {
+  .contact-fields { grid-template-columns: minmax(0, 1fr); }
+  .header-controls { width: 100%; }
+}

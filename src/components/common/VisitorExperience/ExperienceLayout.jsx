@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
 import Container from '../../ui/Container/Container'
 
 export default function ExperienceLayout({ label, title, children }) {
@@ -11,6 +12,7 @@ export default function ExperienceLayout({ label, title, children }) {
   return (
     <main className="section visitor-experience" aria-labelledby="visitor-heading">
       <Container>
+        <div className="visitor-language"><LanguageSwitcher /></div>
         <div className="visitor-content">
           <p className="text-h3">{'<Lucas />'}</p>
           <p className="text-label visitor-muted">{label}</p>

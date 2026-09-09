@@ -1,8 +1,8 @@
+import useLanguage from '../../../hooks/useLanguage'
 import RecruiterSection from '../RecruiterSection'
-import { recruiterContent } from '../../../data/recruiter'
-import { clientProjects } from '../../../data/projects'
 
 export default function Experience() {
+  const { copy: { recruiterContent, clientProjects } } = useLanguage()
   const content = recruiterContent.experience
   return (
     <RecruiterSection id="experience" {...content}>
