@@ -4,3 +4,9 @@
 @import './styles/layout.css';
 @import './styles/globals.css';
 @import './styles/components.css';
+@import './styles/visitor.css';
+@import './styles/recruiter.css';
+@import './styles/client.css';
+@import './styles/motion.css';
+@import './styles/language-contact.css';
+@import './styles/ux-polish.css';

@@ -1,0 +1,208 @@
+/* LPORT-85: default styles are always the final, readable state. */
+.animated-brand { flex-shrink: 0; max-width: 100%; font-size: clamp(1.25rem, 3vw, 2.5rem); }
+.visitor-content > .animated-brand { animation: none; }
+.brand-visual { position: relative; display: inline-block; white-space: nowrap; }
+.brand-reserve { visibility: hidden; }
+.brand-layout { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; gap: 0.2em; }
+.brand-layout > :first-child { animation: brand-left 1100ms var(--motion-easing) both; }
+.brand-layout > :last-child { animation: brand-right 1100ms var(--motion-easing) both; }
+.brand-name { white-space: nowrap; animation: brand-open 1100ms var(--motion-easing) both; }
+@keyframes brand-left { 0%, 20% { transform: translateX(2.8em); } to { transform: none; } }
+@keyframes brand-right { 0%, 20% { transform: translateX(-2.8em); } to { transform: none; } }
+@keyframes brand-open { 0%, 25% { opacity: 0; clip-path: inset(0 50%); } to { opacity: 1; clip-path: inset(0); } }
+
+.tracking-in-expand { animation: tracking-in-expand 3s cubic-bezier(0.215, 0.61, 0.355, 1) both; }
+@keyframes tracking-in-expand {
+  from { letter-spacing: -0.5em; opacity: 0; }
+  40% { opacity: 0.6; }
+  to { letter-spacing: var(--letter-spacing-tight); opacity: 1; }
+}
+
+/* One observer / one visual effect: specialized sections do not run the generic transform. */
+.section.motion-revealed[data-motion] { animation: none; }
+.section.motion-revealed[data-motion="technology"] .motion-section-visual {
+  animation: scale-in-ver-center 1s steps(2, end) both;
+  transform-origin: center;
+}
+@keyframes scale-in-ver-center {
+  from { transform: scaleY(0); opacity: 1; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+.section.motion-revealed[data-motion="contact"] .motion-section-visual {
+  animation: tracking-in-contract-bck-bottom 4s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+.section.motion-revealed[data-motion="contact"] .section-title__heading {
+  animation: contact-tracking 4s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+}
+@keyframes tracking-in-contract-bck-bottom {
+  from { transform: translateY(clamp(100px, 20vw, 300px)) translateZ(-160px); opacity: 0; }
+  40% { opacity: 0.6; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes contact-tracking {
+  from { letter-spacing: 0.18em; }
+  to { letter-spacing: var(--letter-spacing-tight); }
+}
+[data-motion="contact"] :is(input, textarea, button, label) { letter-spacing: normal; }
+
+.flicker-in-1 {
+  -webkit-animation: flicker-in-1 3s linear both;
+  animation: flicker-in-1 3s linear both;
+}
+@-webkit-keyframes flicker-in-1 {
+  0% { opacity: 0; }
+  10% { opacity: 0; }
+  10.1% { opacity: 1; }
+  10.2% { opacity: 0; }
+  20% { opacity: 0; }
+  20.1% { opacity: 1; }
+  20.6% { opacity: 0; }
+  30% { opacity: 0; }
+  30.1% { opacity: 1; }
+  30.5% { opacity: 1; }
+  30.6% { opacity: 0; }
+  45% { opacity: 0; }
+  45.1% { opacity: 1; }
+  50% { opacity: 1; }
+  55% { opacity: 1; }
+  55.1% { opacity: 0; }
+  57% { opacity: 0; }
+  57.1% { opacity: 1; }
+  60% { opacity: 1; }
+  60.1% { opacity: 0; }
+  65% { opacity: 0; }
+  65.1% { opacity: 1; }
+  75% { opacity: 1; }
+  75.1% { opacity: 0; }
+  77% { opacity: 0; }
+  77.1% { opacity: 1; }
+  85% { opacity: 1; }
+  85.1% { opacity: 0; }
+  86% { opacity: 0; }
+  86.1% { opacity: 1; }
+  100% { opacity: 1; }
+}
+@keyframes flicker-in-1 {
+  0% { opacity: 0; }
+  10% { opacity: 0; }
+  10.1% { opacity: 1; }
+  10.2% { opacity: 0; }
+  20% { opacity: 0; }
+  20.1% { opacity: 1; }
+  20.6% { opacity: 0; }
+  30% { opacity: 0; }
+  30.1% { opacity: 1; }
+  30.5% { opacity: 1; }
+  30.6% { opacity: 0; }
+  45% { opacity: 0; }
+  45.1% { opacity: 1; }
+  50% { opacity: 1; }
+  55% { opacity: 1; }
+  55.1% { opacity: 0; }
+  57% { opacity: 0; }
+  57.1% { opacity: 1; }
+  60% { opacity: 1; }
+  60.1% { opacity: 0; }
+  65% { opacity: 0; }
+  65.1% { opacity: 1; }
+  75% { opacity: 1; }
+  75.1% { opacity: 0; }
+  77% { opacity: 0; }
+  77.1% { opacity: 1; }
+  85% { opacity: 1; }
+  85.1% { opacity: 0; }
+  86% { opacity: 0; }
+  86.1% { opacity: 1; }
+  100% { opacity: 1; }
+}
+.project-preview { min-width: 0; width: 100%; }
+.project-preview-trigger { background: none; border: 0; color: inherit; font: inherit; font-size: 0.75rem; text-decoration: underline; padding: 0.5rem 0; margin-bottom: var(--space-sm); cursor: pointer; }
+.project-preview.is-open .project-preview-trigger { display: none; }
+.project-preview.is-open .recruiter-actions,
+.project-preview.is-open .developer-project .recruiter-actions,
+.project-preview.is-open .recruiter-link,
+.project-preview.is-open .developer-project .recruiter-link { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .project-preview-trigger:not(:focus-visible) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); }
+}
+[data-motion="contact"] > .container { perspective: 1200px; }
+[data-motion="contact"] { overflow-x: clip; }
+
+.project-preview-summary {
+  position: relative;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+.project-preview-panel {
+  position: relative;
+  container-type: inline-size;
+  min-width: 0;
+  width: 100%;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(14px);
+  transition: opacity 260ms ease, transform 260ms ease, max-height 260ms ease;
+}
+.project-preview-panel.is-open {
+  opacity: 1;
+  max-height: 28rem;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.project-preview-panel-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-sm);
+}
+.project-preview-panel-footer a,
+.project-preview-panel-footer a:visited {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.project-preview-track {
+  --preview-width: min(78cqi, 24rem);
+  position: relative;
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding-block: var(--space-sm);
+  padding-inline: calc((100cqi - var(--preview-width)) / 2);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.project-preview-track::-webkit-scrollbar { display: none; }
+.project-preview-track figure {
+  flex: 0 0 var(--preview-width);
+  min-width: 0;
+  scroll-snap-align: center;
+  opacity: 0.65;
+  transform: scale(0.93);
+  transition: opacity var(--motion-duration-fast) ease, transform var(--motion-duration-fast) ease;
+}
+.project-preview-track figure[data-active="true"] { opacity: 1; transform: scale(1); }
+.project-preview-track img { display: block; width: 100%; height: auto; object-fit: contain; background: var(--color-surface); border: 1px solid var(--color-border); }
+.project-preview-placeholder { aspect-ratio: 16 / 10; border: 1px solid var(--color-border); background: var(--color-surface); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+.project-preview-placeholder > :last-child { font-size: 2rem; }
+.project-preview-controls button { width: 44px; height: 44px; border: 1px solid var(--color-border); background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.project-preview-controls { display: flex; flex-wrap: wrap; gap: var(--space-sm); padding-bottom: var(--space-sm); }
+.project-preview-controls button:disabled { opacity: 0.5; cursor: default; }
+.project-preview :where(button, [tabindex]):focus-visible { outline: 2px solid var(--color-text-primary); outline-offset: 4px; }
+@supports not (width: 1cqi) {
+  .project-preview-track { --preview-width: 80%; padding-inline: var(--space-sm); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-layout > span, .tracking-in-expand,
+  .section.motion-revealed[data-motion="technology"] .motion-section-visual,
+  .section.motion-revealed[data-motion="contact"] .motion-section-visual,
+  .section.motion-revealed[data-motion="contact"] .section-title__heading {
+    animation: none; transform: none; opacity: 1;
+  }
+  .brand-name { max-width: none; }
+  .project-preview-track { scroll-behavior: auto; }
+  .project-preview-track figure { transition: none; }
+}
