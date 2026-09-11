@@ -15,7 +15,7 @@ export default function ContactChannels() {
 
   return (
     <ul className="contact-channels" aria-label={contact.label}>
-      {channels.map(([key, url]) => <li key={key}><a className="recruiter-link" href={url}>{contact[key]}</a></li>)}
+      {channels.map(([key, url]) => <li key={key}><a className="recruiter-link" href={url} target="_blank" rel="noreferrer noopener">{contact[key]}</a></li>)}
     </ul>
   )
 }

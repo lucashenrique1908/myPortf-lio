@@ -1,6 +1,5 @@
 // Conteúdo-base; traduções centralizadas em data/i18n.
 export const clientContent = {
-  brand: '<Lucas />',
   hero: {
     label: 'Sites para empresas e profissionais',
     titleLines: ['I build', 'digital', 'experiences.'],
@@ -14,8 +13,8 @@ export const clientContent = {
   stack: { label: '04 / Tecnologia', title: 'A base de cada experiência.', description: 'Tecnologias para desenvolver interfaces e integrar os recursos que seu projeto precisa.' },
   about: {
     label: '05 / Sobre', title: 'Transformo ideias em experiências digitais.',
-    description: 'Sou Lucas, Front-End Developer baseado em Portugal. Desenvolvo sites modernos e responsivos para empresas e profissionais, combinando tecnologia, usabilidade e uma apresentação profissional.',
-    detail: 'Trabalho com React e JavaScript e tenho experiência com projetos reais para clientes.',
+    description: 'Sou Lucas Souza, Front-End Developer e freelancer baseado em Portugal. Desenvolvo interfaces e aplicações web modernas, responsivas e focadas na experiência do usuário, transformando necessidades de negócios em soluções digitais claras, funcionais e bem estruturadas com React e JavaScript.',
+    detail: '',
   },
   contact: {
     label: '06 / Contato', title: 'Tem um projeto?',

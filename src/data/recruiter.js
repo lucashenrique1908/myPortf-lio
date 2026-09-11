@@ -1,7 +1,6 @@
 // Conteúdo-base em português; traduções centralizadas em data/i18n.
 // Contatos centralizados em contactConfig. URL do currículo ainda pendente.
 export const recruiterProfile = {
-  brand: '<Lucas />',
   title: 'Front-End Developer',
   location: 'Portugal',
   resumeUrl: null,
@@ -15,7 +14,7 @@ export const recruiterContent = {
   },
   about: {
     label: '01 / Sobre', title: 'Interfaces com propósito.',
-    description: 'Sou Lucas, Front-End Developer em Portugal. Desenvolvo interfaces e aplicações web com React e JavaScript, incluindo projetos reais para clientes. Meu foco está na responsividade e na experiência de quem utiliza cada interface.',
+    description: 'Sou Lucas Souza, Front-End Developer e freelancer baseado em Portugal, com experiência no desenvolvimento de projetos reais para clientes. Crio interfaces e aplicações web modernas, responsivas e focadas na experiência do usuário, utilizando React e JavaScript para transformar necessidades reais em soluções digitais funcionais, claras e bem estruturadas.',
   },
   experience: {
     label: '02 / Experiência', title: 'Projetos reais. Trabalho independente.',
@@ -31,7 +30,7 @@ export const recruiterContent = {
   },
   resume: {
     label: '06 / Currículo', title: 'Minha experiência, em um documento.',
-    description: 'Consulte ou baixe o currículo para conhecer meu perfil profissional.',
+    description: '',
     pending: 'Currículo em preparação. Visualização e download estarão disponíveis quando o documento for adicionado.',
     view: 'Visualizar currículo', download: 'Baixar CV',
   },

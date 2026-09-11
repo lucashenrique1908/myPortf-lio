@@ -6,7 +6,7 @@ import { clientTechnologies } from '../../../data/client'
 export default function ClientTechStack() {
   const { copy: { clientContent } } = useLanguage()
   return (
-    <ClientSection id="client-stack" {...clientContent.stack}>
+    <ClientSection motion="technology" id="client-stack" {...clientContent.stack}>
       <p className="client-muted client-copy">{clientContent.stack.description}</p>
       <ul className="client-tags">
         {clientTechnologies.map(technology => <li key={technology}><Tag>{technology}</Tag></li>)}

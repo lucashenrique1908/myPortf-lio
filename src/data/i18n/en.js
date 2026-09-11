@@ -35,17 +35,6 @@ const projectText = {
     description: 'Professional website developed for Studio Cedro Marcenaria using React and Vite.',
   },
   'github-finder': { category: 'Technical project', description: 'Provisional overview. Project details are being prepared.' },
-  'crm-sales': {
-    category: 'Technical project', summary: 'CRM for salespeople and managers.',
-    description: 'Project with a defined scope to track the Lead → contact → negotiation → won/lost flow. Implementation of the features below has not yet been confirmed.',
-    plannedScope: [
-      'Planned MVP: creating and managing customers and contacts; recording and tracking sales; search, filters, history and identification of new or returning customers.',
-      'Planned authentication: email and password, account recovery and registration.',
-      'Planned permissions: salespeople manage their customers; managers manage users and customers.',
-      'Planned backend: Node.js. Planned database: MongoDB.',
-      'Planned metrics: salesperson performance, wins and losses, new and returning customers.',
-    ],
-  },
 }
 const stackTitles = { core: 'Core Front-End', web: 'React / Web', tools: 'Tools / Workflow', other: 'Other technologies I have worked with' }
 
@@ -53,7 +42,8 @@ export default {
   common: { language: 'Language', pageTitle: 'Lucas | Portfolio', live: 'Visit website', repository: 'View code', caseStudy: 'View case study', technologies: 'Project technologies' },
   intro: { label: 'Before we continue...', title: 'What brings you here?', recruiter: 'I am recruiting', client: 'I need a developer' },
   visitor: { label: 'Change experience', recruiter: 'Switch to recruiter mode', client: 'Switch to client mode', reset: 'Choose again' },
-  marquee: { label: 'Areas and technologies', pause: 'Pause motion', resume: 'Resume motion' },
+  marquee: { label: 'Areas and technologies' },
+  preview: { placeholder: 'Project image', label: 'Project images', open: 'Open preview', close: 'Close preview', previous: 'Previous image', next: 'Next image' },
   caseStudy: {
     label: 'Case study', navigation: 'Project navigation', back: 'Back to portfolio',
     notFound: 'Project not found', notFoundDescription: 'We could not find a project at this address. Return to the portfolio to explore the available projects.',
@@ -66,17 +56,18 @@ export default {
     title: 'Prepare your message', description: 'All fields are required. Your details are not sent or saved by this website.',
     unavailable: 'The recipient email has not been configured yet. You can fill in and validate your message, but opening an email to Lucas is not available yet.',
     mailtoHint: 'Your message will be prepared in your email app. You will need to review and send it there; this website does not confirm delivery.',
-    name: 'Name', email: 'Email', subject: 'Subject', message: 'Message', submit: 'Prepare message',
+    name: 'Name', email: 'Email', subject: 'Subject', message: 'Message', submit: 'Prepare message', contactQuestion: 'How would you like to contact me?', closeChoice: 'Close contact options',
+    whatsappDefault: "Hi Lucas, It's a pleasure to speak with you, I'd like to learn more about your expertise in the tech field.",
     errors: { required: 'Please fill in this field.', email: 'Please enter a valid email.', tooLong: 'The text exceeds the limit for this field.' },
     invalid: 'Review the indicated fields. Your message has been kept.',
     prepared: 'We requested that your email app open. Review and send your message there. No delivery has been confirmed by this website.',
   },
   recruiterContent: {
     mode: 'Recruiter experience',
-    hero: { introduction: 'Modern interfaces. Responsive experiences.', projects: 'View projects', resume: 'View résumé' },
+    hero: { introduction: 'Modern interfaces. Responsive experiences.', projects: 'View projects', resume: 'View Resume' },
     about: {
       label: '01 / About', title: 'Interfaces with purpose.',
-      description: 'I am Lucas, a Front-End Developer in Portugal. I build web interfaces and applications with React and JavaScript, including real client projects. I focus on responsiveness and the experience of the people using each interface.',
+      description: "I'm Lucas Souza, a Front-End Developer and freelancer based in Portugal, with experience developing real projects for clients. I build modern, responsive web interfaces and applications focused on user experience, using React and JavaScript to turn real needs into functional, clear, and well-structured digital solutions.",
     },
     experience: {
       label: '02 / Experience', title: 'Real projects. Independent work.', role: 'Freelance Front-End Developer',
@@ -91,9 +82,9 @@ export default {
     },
     resume: {
       label: '06 / Résumé', title: 'My experience, in one document.',
-      description: 'View or download my résumé to learn about my professional background.',
+      description: '',
       pending: 'Résumé in preparation. Viewing and downloading will be available when the document is added.',
-      view: 'View résumé', download: 'Download CV',
+      view: 'View Resume', download: 'Download CV',
     },
     contact: {
       label: '07 / Contact', title: 'Let’s talk.',
@@ -102,7 +93,6 @@ export default {
     },
   },
   clientContent: {
-    brand: '<Lucas />',
     hero: { label: 'Websites for businesses and professionals', titleLines: ['I build', 'digital', 'experiences.'], description: 'Modern websites for businesses that want to stand out.', work: 'View my work', quote: 'Request a quote' },
     services: { label: '01 / Services', title: 'What I can create for you.' },
     projects: { label: '02 / Work', title: 'Client projects.', live: 'Visit website', repository: 'View code' },

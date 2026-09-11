@@ -9,7 +9,7 @@ import TechStack from '../../../sections/recruiter/TechStack/TechStack'
 import DevelopmentWorkflow from '../../../sections/recruiter/DevelopmentWorkflow/DevelopmentWorkflow'
 import Resume from '../../../sections/recruiter/Resume/Resume'
 import RecruiterCTA from '../../../sections/recruiter/RecruiterCTA/RecruiterCTA'
-import { recruiterProfile } from '../../../data/recruiter'
+import AnimatedBrand from '../../animations/AnimatedBrand'
 import Marquee from '../../animations/Marquee'
 
 export default function RecruiterExperience() {
@@ -18,7 +18,7 @@ export default function RecruiterExperience() {
       <header className="recruiter-header">
         <Container>
           <div className="recruiter-row">
-            <p className="text-h3">{recruiterProfile.brand}</p>
+            <AnimatedBrand />
             <div className="header-controls"><LanguageSwitcher /><VisitorModeSwitcher /></div>
           </div>
         </Container>

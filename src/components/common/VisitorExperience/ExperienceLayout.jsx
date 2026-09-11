@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher'
+import AnimatedBrand from '../../animations/AnimatedBrand'
 import Container from '../../ui/Container/Container'
 
 export default function ExperienceLayout({ label, title, children }) {
@@ -14,7 +15,7 @@ export default function ExperienceLayout({ label, title, children }) {
       <Container>
         <div className="visitor-language"><LanguageSwitcher /></div>
         <div className="visitor-content">
-          <p className="text-h3">{'<Lucas />'}</p>
+          <AnimatedBrand />
           <p className="text-label visitor-muted">{label}</p>
           <h1 id="visitor-heading" className="text-h1" tabIndex={-1} ref={headingRef}>
             {title}
