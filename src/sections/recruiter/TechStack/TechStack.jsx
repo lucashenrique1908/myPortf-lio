@@ -5,7 +5,7 @@ import Tag from '../../../components/ui/Tag/Tag'
 export default function TechStack() {
   const { copy: { recruiterContent, techStack } } = useLanguage()
   return (
-    <RecruiterSection id="tech-stack" {...recruiterContent.stack}>
+    <RecruiterSection id="tech-stack" motion="technology" {...recruiterContent.stack}>
       <div className="recruiter-stack">
         {techStack.map(group => (
           <div key={group.id}>

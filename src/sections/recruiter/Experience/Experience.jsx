@@ -1,4 +1,5 @@
 import useLanguage from '../../../hooks/useLanguage'
+import ProjectPreviewGallery from '../../../components/common/ProjectPreviewGallery/ProjectPreviewGallery'
 import RecruiterSection from '../RecruiterSection'
 
 export default function Experience() {
@@ -12,9 +13,11 @@ export default function Experience() {
       <ul className="recruiter-client-projects">
         {clientProjects.map(project => (
           <li key={project.id}>
-            <a className="recruiter-link recruiter-row" href={project.liveUrl}>
-              <span>{project.title}</span><span className="text-label">{content.visit} ↗</span>
-            </a>
+            <ProjectPreviewGallery project={project}>
+              <div className="recruiter-row">
+                <span>{project.title}</span><a className="recruiter-link text-label" href={project.liveUrl} target="_blank" rel="noreferrer noopener">{content.visit} ↗</a>
+              </div>
+            </ProjectPreviewGallery>
           </li>
         ))}
       </ul>

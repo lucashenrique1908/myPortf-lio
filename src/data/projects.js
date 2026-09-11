@@ -1,3 +1,16 @@
+import medidaVibrante1 from '../assets/images/medidaVibrante1.jpg'
+import medidaVibrante2 from '../assets/images/medidaVibrante2.jpg'
+import medidaVibrante3 from '../assets/images/medidaVibrante3.png'
+import medidaVibrante4 from '../assets/images/medidaVibrante4.png'
+import medidaVibrante5 from '../assets/images/medidaVibrante5.png'
+import studio1 from '../assets/images/studio1.jpg'
+import studio2 from '../assets/images/studio2.jpg'
+import studio3 from '../assets/images/studio3.jpg'
+import studio4 from '../assets/images/studio4.jpg'
+import gitfinder1 from '../assets/images/gitfinder1.png'
+import gitfinder2 from '../assets/images/gitfinder2.png'
+import gitfinder3 from '../assets/images/gitfinder3.png'
+
 // Campos não confirmados ficam vazios. Planejamento não representa entrega.
 // image: null ou { src, alt }; screenshots: array de { src, alt } reais.
 const caseStudyDefaults = {
@@ -12,21 +25,11 @@ export const developerProjects = [
     id: 'github-finder', slug: 'github-finder', title: 'GitHub Finder',
     category: 'Projeto técnico', description: 'Apresentação provisória. Detalhes do projeto em preparação.',
     technologies: [], liveUrl: null, repositoryUrl: null,
-  },
-  {
-    ...caseStudyDefaults,
-    id: 'crm-sales', slug: 'crm-sales', title: 'CRM Sales',
-    category: 'Projeto técnico',
-    summary: 'CRM para vendedores e gestores.',
-    description: 'Projeto com escopo definido para acompanhar o fluxo Lead → contato → negociação → ganho/perdido. A implementação dos recursos abaixo ainda não está confirmada.',
-    plannedScope: [
-      'MVP previsto: cadastro e gestão de clientes e contatos; registro e acompanhamento de vendas; busca, filtros, histórico e identificação de cliente novo ou recorrente.',
-      'Autenticação planejada: email e senha, recuperação de acesso e cadastro.',
-      'Permissões previstas: vendedores gerenciam seus clientes; gestores gerenciam usuários e clientes.',
-      'Backend planejado: Node.js. Banco de dados planejado: MongoDB.',
-      'Métricas planejadas: desempenho de vendedores, ganhos e perdas, clientes novos e recorrentes.',
+    screenshots: [
+      { src: gitfinder1, alt: 'Tela do projeto GitHub Finder' },
+      { src: gitfinder2, alt: 'Busca no projeto GitHub Finder' },
+      { src: gitfinder3, alt: 'Resultado do projeto GitHub Finder' },
     ],
-    technologies: [], liveUrl: null, repositoryUrl: null,
   },
 ]
 
@@ -40,6 +43,13 @@ export const clientProjects = [
     technologies: ['HTML', 'CSS', 'JavaScript'],
     features: ['Formulário com validação de NIF e telefone.', 'Galeria e avaliações.', 'Tema claro e escuro.', 'Seção de zonas atendidas.'],
     liveUrl: 'https://medidavibrante.com/', repositoryUrl: null,
+    screenshots: [
+      { src: medidaVibrante1, alt: 'Página inicial da Medida Vibrante' },
+      { src: medidaVibrante2, alt: 'Serviços da Medida Vibrante' },
+      { src: medidaVibrante3, alt: 'Galeria da Medida Vibrante' },
+      { src: medidaVibrante4, alt: 'Avaliações da Medida Vibrante' },
+      { src: medidaVibrante5, alt: 'Contato da Medida Vibrante' },
+    ],
   },
   {
     ...caseStudyDefaults,
@@ -49,6 +59,12 @@ export const clientProjects = [
     description: 'Site profissional desenvolvido para o Studio Cedro Marcenaria, utilizando React e Vite.',
     technologies: ['React', 'Vite'],
     liveUrl: 'https://www.studiocedromarcenaria.com/', repositoryUrl: null,
+    screenshots: [
+      { src: studio1, alt: 'Página inicial do Studio Cedro Marcenaria' },
+      { src: studio2, alt: 'Projetos do Studio Cedro Marcenaria' },
+      { src: studio3, alt: 'Serviços do Studio Cedro Marcenaria' },
+      { src: studio4, alt: 'Contato do Studio Cedro Marcenaria' },
+    ],
   },
 ]
 

@@ -1,15 +1,13 @@
 import useLanguage from '../../hooks/useLanguage'
-import { useState } from 'react'
 import { recruiterProfile, techStack } from '../../data/recruiter'
 
-const items = [recruiterProfile.title, ...techStack.find(group => group.id === 'core').technologies]
+const items = [recruiterProfile.title, ...techStack.find(group => group.id === 'core').technologies, 'Git']
 
 export default function Marquee() {
   const { copy: { marquee } } = useLanguage()
-  const [paused, setPaused] = useState(false)
 
   return (
-    <aside className="motion-marquee" aria-label={marquee.label} data-paused={paused}>
+    <aside className="motion-marquee" aria-label={marquee.label}>
       <p className="motion-sr-only">{items.join(' — ')}</p>
       <div className="motion-marquee-window" aria-hidden="true">
         <div className="motion-marquee-track">
@@ -20,9 +18,6 @@ export default function Marquee() {
           ))}
         </div>
       </div>
-      <button className="button button--secondary motion-marquee-control" type="button" onClick={() => setPaused(value => !value)}>
-        {paused ? marquee.resume : marquee.pause}
-      </button>
     </aside>
   )
 }

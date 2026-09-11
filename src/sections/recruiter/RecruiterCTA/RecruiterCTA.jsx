@@ -7,7 +7,7 @@ export default function RecruiterCTA() {
   const { copy: { recruiterContent } } = useLanguage()
   const content = recruiterContent.contact
   return (
-    <RecruiterSection id="contact" {...content}>
+    <RecruiterSection id="contact" motion="contact" {...content}>
       <p className="recruiter-lead">{content.description}</p>
       <ContactChannels />
       <ContactForm />

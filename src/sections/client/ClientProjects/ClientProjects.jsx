@@ -8,7 +8,7 @@ export default function ClientProjects() {
     <ClientSection id="client-projects" {...clientContent.projects}>
       <div className="client-projects">
         {clientProjects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} number={index + 1} labels={clientContent.projects} />
+          <ProjectCard key={project.id} project={project} number={index + 1} labels={clientContent.projects} showTechnologies={false} />
         ))}
       </div>
     </ClientSection>
