@@ -8,7 +8,6 @@ import ClientProjects from '../../../sections/client/ClientProjects/ClientProjec
 import HowIWork from '../../../sections/client/HowIWork/HowIWork'
 import ClientAbout from '../../../sections/client/ClientAbout/ClientAbout'
 import ClientCTA from '../../../sections/client/ClientCTA/ClientCTA'
-import Marquee from '../../animations/Marquee'
 
 export default function ClientExperience() {
   return (
@@ -23,7 +22,6 @@ export default function ClientExperience() {
       </header>
       <main>
         <ClientHero />
-        <Marquee />
         <Services />
         <ClientProjects />
         <HowIWork />

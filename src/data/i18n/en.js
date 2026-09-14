@@ -1,12 +1,12 @@
 import pt from './pt'
 
 const serviceText = {
-  'landing-pages': { title: 'Landing Pages', description: 'Pages presenting a service, product or initiative with organised content and clear navigation.' },
-  'business-websites': { title: 'Business Websites', description: 'Websites presenting a company, its services and contact options.' },
-  portfolios: { title: 'Professional Portfolios', description: 'Portfolios for professionals who want to showcase their work and experience.' },
-  responsive: { title: 'Responsive Development', description: 'Interfaces adapted to phones, tablets and computers.' },
-  api: { title: 'API Integration', description: 'Connecting interfaces to data and features provided by APIs.' },
-  firebase: { title: 'Firebase', description: 'Integrating Firebase features according to the needs and scope of the project.' },
+  'landing-pages': { title: 'Presentation pages', description: 'Pages designed to showcase a service, product, or initiative with organized content and clear navigation.' },
+  'business-websites': { title: 'Business websites', description: 'Websites to present a company, its services, and contact details.' },
+  portfolios: { title: 'Professional portfolios', description: 'Portfolios for professionals looking to showcase their work and experience.' },
+  responsive: { title: 'Digital platforms', description: 'For those with a ready-made course who want to streamline everything onto a single platform—this could be exactly what you’re looking for!' },
+  api: { title: 'Business platforms', description: 'If you want to better manage your business and track cash flow more efficiently, you’ve come to the right place.' },
+  firebase: { title: 'Everything your way', description: 'You share your idea with me, and I bring it to life.' },
 }
 const workflowText = {
   jira: { title: 'Jira', description: 'Organise work into sprints.' },
@@ -67,7 +67,7 @@ export default {
     hero: { introduction: 'Modern interfaces. Responsive experiences.', projects: 'View projects', resume: 'View Resume' },
     about: {
       label: '01 / About', title: 'Interfaces with purpose.',
-      description: "I'm Lucas Souza, a Front-End Developer and freelancer based in Portugal, with experience developing real projects for clients. I build modern, responsive web interfaces and applications focused on user experience, using React and JavaScript to turn real needs into functional, clear, and well-structured digital solutions.",
+      description: "I’m Lucas Souza, a freelance front-end developer based in Portugal. I enjoy transforming ideas and business needs into digital products that make sense for both the users and the people behind them. I’ve had the opportunity to work on real-world client projects, handling requirements, decisions, and adjustments that go beyond simply writing code. I value well-thought-out solutions, attention to detail, and—above all—understanding the problem before I start building.",
     },
     experience: {
       label: '02 / Experience', title: 'Real projects. Independent work.', role: 'Freelance Front-End Developer',
@@ -94,13 +94,13 @@ export default {
   },
   clientContent: {
     hero: { label: 'Websites for businesses and professionals', titleLines: ['I build', 'digital', 'experiences.'], description: 'Modern websites for businesses that want to stand out.', work: 'View my work', quote: 'Request a quote' },
-    services: { label: '01 / Services', title: 'What I can create for you.' },
+    services: { label: 'Services', title: 'What I can create for you.' },
     projects: { label: '02 / Work', title: 'Client projects.', live: 'Visit website', repository: 'View code' },
     process: { label: '03 / Process', title: 'How we work together.' },
     stack: { label: '04 / Technology', title: 'The foundation of every experience.', description: 'Technologies for developing interfaces and integrating the features your project needs.' },
     about: {
       label: '05 / About', title: 'I turn ideas into digital experiences.',
-      description: 'I am Lucas, a Front-End Developer based in Portugal. I build modern, responsive websites for businesses and professionals, combining technology, usability and a professional presentation.',
+      description: 'I’m Lucas Souza, a freelance front-end developer based in Portugal. I help companies and professionals turn their ideas into a digital presence that truly represents their business. My work begins by understanding what each project needs to communicate and achieve, allowing me to build a solution that enhances the brand, builds trust, and facilitates connections with new clients.',
       detail: 'I work with React and JavaScript and have experience with real client projects.',
     },
     contact: {

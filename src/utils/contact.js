@@ -23,3 +23,29 @@ export function createContactMailto(email, values, labels) {
   ].join('\r\n')
   return 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body)
 }
+
+export function createContactDestination(email, values, labels) {
+  const mailto = createContactMailto(email, values, labels)
+  if (!mailto) return null
+
+  const senderDomain = values.email.trim().toLowerCase().split('@')[1]
+  const subject = values.subject.trim().replace(/[\r\n]+/g, ' ')
+  const body = [
+    labels.name + ': ' + values.name.trim(),
+    labels.email + ': ' + values.email.trim(),
+    '',
+    values.message.trim(),
+  ].join('\r\n')
+  const params = new URLSearchParams({ to: email, subject, body })
+
+  if (senderDomain === 'gmail.com' || senderDomain === 'googlemail.com') {
+    return 'https://mail.google.com/mail/?view=cm&fs=1&' + params.toString()
+  }
+  if (/^(outlook|hotmail|live|msn)\./.test(senderDomain)) {
+    return 'https://outlook.live.com/mail/0/deeplink/compose?' + params.toString()
+  }
+  if (senderDomain === 'yahoo.com' || senderDomain === 'yahoo.com.br') {
+    return 'https://compose.mail.yahoo.com/?' + params.toString()
+  }
+  return mailto
+}

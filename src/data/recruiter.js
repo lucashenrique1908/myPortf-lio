@@ -14,7 +14,7 @@ export const recruiterContent = {
   },
   about: {
     label: '01 / Sobre', title: 'Interfaces com propósito.',
-    description: 'Sou Lucas Souza, Front-End Developer e freelancer baseado em Portugal, com experiência no desenvolvimento de projetos reais para clientes. Crio interfaces e aplicações web modernas, responsivas e focadas na experiência do usuário, utilizando React e JavaScript para transformar necessidades reais em soluções digitais funcionais, claras e bem estruturadas.',
+    description: 'Sou Lucas Souza, Front-End Developer e freelancer baseado em Portugal. Gosto de transformar ideias e necessidades de negócio em produtos digitais que façam sentido para quem usa e para quem está por trás deles. Já tive a oportunidade de trabalhar em projetos reais para clientes, lidando com requisitos, decisões e ajustes que vão além de simplesmente escrever código. Valorizo soluções bem pensadas, atenção aos detalhes e, principalmente, entender o problema antes de começar a construir.',
   },
   experience: {
     label: '02 / Experiência', title: 'Projetos reais. Trabalho independente.',

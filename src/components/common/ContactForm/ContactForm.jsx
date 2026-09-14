@@ -1,7 +1,7 @@
 import { useContext, useEffect, useId, useRef, useState } from 'react'
 import useLanguage from '../../../hooks/useLanguage'
 import { contactConfig } from '../../../data/contact'
-import { contactLimits, createContactMailto, validateContact } from '../../../utils/contact'
+import { contactLimits, createContactDestination, validateContact } from '../../../utils/contact'
 import Button from '../../ui/Button/Button'
 import { VisitorContext } from '../../../context/VisitorContext'
 
@@ -73,9 +73,10 @@ export default function ContactForm() {
       return
     }
     if (channel === 'email') {
-      const url = createContactMailto(contactConfig.email, values, text)
+      const url = createContactDestination(contactConfig.email, values, text)
       if (!url) { setStatus('unavailable'); return }
-      window.open(url, '_self')
+      const emailWindow = window.open(url, '_blank')
+      if (!emailWindow) window.location.href = url
       return
     }
     const whatsappUrl = contactConfig.whatsappUrl + '?text=' + encodeURIComponent(contactBody())

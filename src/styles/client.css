@@ -101,13 +101,17 @@
   margin-bottom: var(--space-lg);
 }
 
+#client-services .client-section-heading {
+  max-width: none;
+  text-align: center;
+}
+
 .client-section-content {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
 }
 
-.client-services,
 .client-process,
 .client-projects {
   display: grid;
@@ -115,7 +119,6 @@
   gap: var(--space-lg) var(--space-md);
 }
 
-.client-services > li,
 .client-process > li {
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-md);
@@ -125,8 +128,57 @@
   min-width: 0;
 }
 
-.client-services p,
 .client-process p { max-width: 50ch; }
+
+.client-services {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.client-services-row {
+  overflow: hidden;
+  width: 100%;
+}
+
+.client-services-track {
+  display: flex;
+  width: max-content;
+  animation: client-services-scroll 28s linear infinite;
+}
+
+.client-services-row--reverse .client-services-track {
+  animation-name: client-services-scroll-reverse;
+}
+
+.client-services-group {
+  display: flex;
+  gap: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.client-service-card {
+  padding: var(--space-lg);
+  display: flex;
+  flex: 0 0 clamp(17rem, 28vw, 24rem);
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-height: 12rem;
+  justify-content: center;
+}
+
+.client-service-card p { max-width: 38ch; }
+
+@keyframes client-services-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes client-services-scroll-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
 
 .client-process { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
@@ -137,11 +189,25 @@
 .client-copy { max-width: 48ch; }
 
 .client-about-copy {
-  max-width: 64rem;
+  max-width: none;
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 34rem);
   gap: var(--space-lg);
-  align-items: end;
+  align-items: stretch;
+}
+
+.client-about-text { min-width: 0; }
+
+.client-about-image,
+.recruiter-about-image {
+  display: block;
+  width: min(100%, 120rem);
+  height: 500px;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center;
+  justify-self: end;
+  transform: translateX(clamp(0px, 4vw, 4rem));
 }
 
 .client-about-copy .text-h3 { line-height: var(--line-height-normal); }
@@ -164,10 +230,10 @@
 }
 
 @media (max-width: 767px) {
-  .client-services,
   .client-process,
   .client-projects,
   .client-about-copy { grid-template-columns: minmax(0, 1fr); }
+  .client-about-image { height: auto; aspect-ratio: 3 / 4; transform: none; }
   .client-actions { flex-direction: column; align-items: stretch; }
   .client-hero-introduction { align-items: stretch; flex-direction: column; }
   .client-header .visitor-actions { flex-direction: row; width: 100%; }
@@ -176,4 +242,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .client-experience * { transition: none; }
+  .client-services-track { animation: none; }
 }

@@ -19,6 +19,15 @@
 .contact-channels { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
 .contact-form { display: grid; gap: var(--space-sm); width: 100%; max-width: 52rem; min-width: 0; margin-top: var(--space-md); }
 .contact-form > h3, .contact-field label { color: var(--color-text-primary); }
+.section[data-motion="contact"] .client-section-heading,
+.section[data-motion="contact"] .client-section-content,
+.section[data-motion="contact"] .recruiter-section-content { text-align: center; }
+.section[data-motion="contact"] .client-section-heading { margin-inline: auto; }
+.section[data-motion="contact"] .client-section-content,
+.section[data-motion="contact"] .recruiter-section-content { align-items: center; }
+.section[data-motion="contact"] .recruiter-section-grid { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.section[data-motion="contact"] .contact-channels { justify-content: center; }
+.section[data-motion="contact"] .contact-form { margin-inline: auto; text-align: left; }
 .contact-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-sm); }
 .contact-field { display: flex; flex-direction: column; gap: var(--space-xs); min-width: 0; }
 .contact-field--wide { grid-column: 1 / -1; }

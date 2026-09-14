@@ -7,13 +7,13 @@ export const clientContent = {
     work: 'Ver meu trabalho',
     quote: 'Solicitar orçamento',
   },
-  services: { label: '01 / Serviços', title: 'O que posso criar para você.' },
+  services: { label: 'Serviços', title: 'O que posso criar para você.' },
   projects: { label: '02 / Trabalhos', title: 'Projetos para clientes.', live: 'Visitar site', repository: 'Ver código' },
   process: { label: '03 / Processo', title: 'Como trabalhamos juntos.' },
   stack: { label: '04 / Tecnologia', title: 'A base de cada experiência.', description: 'Tecnologias para desenvolver interfaces e integrar os recursos que seu projeto precisa.' },
   about: {
     label: '05 / Sobre', title: 'Transformo ideias em experiências digitais.',
-    description: 'Sou Lucas Souza, Front-End Developer e freelancer baseado em Portugal. Desenvolvo interfaces e aplicações web modernas, responsivas e focadas na experiência do usuário, transformando necessidades de negócios em soluções digitais claras, funcionais e bem estruturadas com React e JavaScript.',
+    description: 'Sou Lucas Souza, Front-End Developer e freelancer baseado em Portugal. Ajudo empresas e profissionais a transformar suas ideias em uma presença digital que represente de verdade o seu negócio. Meu trabalho começa entendendo o que cada projeto precisa comunicar e alcançar, para então construir uma solução que valorize a marca, transmita confiança e facilite a conexão com novos clientes.',
     detail: '',
   },
   contact: {
@@ -25,4 +25,3 @@ export const clientContent = {
   },
 }
 
-export const clientTechnologies = ['HTML', 'CSS', 'JavaScript', 'React', 'Firebase', 'REST APIs']
