@@ -1,14 +1,21 @@
 import useLanguage from '../../hooks/useLanguage'
 import { recruiterProfile, techStack } from '../../data/recruiter'
-import { VisitorContext } from '../../context/VisitorContext'
-import { useContext } from 'react'
 
-const recruiterItems = [recruiterProfile.title, ...techStack.find(group => group.id === 'core').technologies, 'Git']
+const marqueeItems = [
+  recruiterProfile.title,
+  ...techStack.find(group => group.id === 'core').technologies,
+  'Git',
+  'Tailwind CSS',
+  'Next.js',
+  'Nest.js',
+  'PostgreSQL',
+  'GSAP',
+  'Node.js',
+]
 
 export default function Marquee() {
-  const { copy: { marquee, clientContent } } = useLanguage()
-  const { visitorType } = useContext(VisitorContext)
-  const items = visitorType === 'client' ? clientContent.stack.technologies : recruiterItems
+  const { copy: { marquee } } = useLanguage()
+  const items = marqueeItems
 
   return (
     <aside className="motion-marquee" aria-label={marquee.label}>

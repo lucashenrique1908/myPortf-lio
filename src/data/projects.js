@@ -10,6 +10,9 @@ import studio4 from '../assets/images/studio4.jpg'
 import gitfinder1 from '../assets/images/gitfinder1.png'
 import gitfinder2 from '../assets/images/gitfinder2.png'
 import gitfinder3 from '../assets/images/gitfinder3.png'
+import saas1 from '../assets/images/imgSAAS1.jpg'
+import saas2 from '../assets/images/ImgSAAS2.jpg'
+import saas3 from '../assets/images/ImgSAAS3.jpg'
 
 // Campos não confirmados ficam vazios. Planejamento não representa entrega.
 // image: null ou { src, alt }; screenshots: array de { src, alt } reais.
@@ -20,6 +23,20 @@ const caseStudyDefaults = {
 }
 
 export const developerProjects = [
+  {
+    ...caseStudyDefaults,
+    id: 'saas-platform', slug: 'saas-platform', title: 'SaaS Platform',
+    category: 'Projeto técnico',
+    summary: 'Plataforma SaaS em desenvolvimento.',
+    description: 'Projeto ainda em crescimento: plataforma inovadora com tudo em um único lugar.',
+    technologies: ['React', 'TypeScript', 'Next.js', 'PostgreSQL', 'TypeORM', 'Tailwind CSS', 'GSAP', 'Node.js', '+ ...'],
+    liveUrl: 'https://github.com/lucashenrique1908/SAAS-Platform.git', repositoryUrl: null,
+    screenshots: [
+      { src: saas1, alt: 'Página da plataforma SaaS' },
+      { src: saas2, alt: 'Interface da plataforma SaaS' },
+      { src: saas3, alt: 'Recursos da plataforma SaaS' },
+    ],
+  },
   {
     ...caseStudyDefaults,
     id: 'github-finder', slug: 'github-finder', title: 'GitHub Finder',

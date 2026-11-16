@@ -25,6 +25,11 @@ const processText = {
   delivery: { title: 'Delivery', description: 'We review the website and organise delivery according to our agreement.' },
 }
 const projectText = {
+  'saas-platform': {
+    category: 'Technical project',
+    summary: 'SaaS platform in progress.',
+    description: 'Project in progress: an innovative platform with everything in one place.',
+  },
   'medida-vibrante': {
     category: 'Real client project', clientType: 'Client', summary: 'Website for an air conditioning company.',
     description: 'Medida Vibrante website with a form, gallery, reviews and a section dedicated to service areas. The interface offers light and dark themes.',
@@ -36,6 +41,7 @@ const projectText = {
   },
   'github-finder': { category: 'Technical project', description: 'Provisional overview. Project details are being prepared.' },
 }
+const saasScreenshotAlts = ['SaaS platform page', 'SaaS platform interface', 'SaaS platform features']
 const stackTitles = { core: 'Core Front-End', web: 'React / Web', tools: 'Tools / Workflow', other: 'Other technologies I have worked with' }
 
 export default {
@@ -113,5 +119,11 @@ export default {
   workflow: pt.workflow.map(item => ({ ...item, ...workflowText[item.id] })),
   clientProcess: pt.clientProcess.map(item => ({ ...item, ...processText[item.id] })),
   techStack: pt.techStack.map(item => ({ ...item, title: stackTitles[item.id] })),
-  projects: pt.projects.map(item => ({ ...item, ...projectText[item.slug] })),
+  projects: pt.projects.map(item => ({
+    ...item,
+    ...projectText[item.slug],
+    ...(item.slug === 'saas-platform' ? {
+      screenshots: item.screenshots.map((image, index) => ({ ...image, alt: saasScreenshotAlts[index] })),
+    } : {}),
+  })),
 }
