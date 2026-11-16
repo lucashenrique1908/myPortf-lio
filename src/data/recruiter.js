@@ -42,8 +42,8 @@ export const recruiterContent = {
 }
 
 export const techStack = [
-  { id: 'core', title: 'Core Front-End', technologies: ['HTML', 'CSS', 'JavaScript', 'React'] },
-  { id: 'web', title: 'React / Web', technologies: ['React Router', 'Context API', 'Axios', 'REST APIs'] },
+  { id: 'core', title: 'Core Front-End', technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'TypeScript', 'Tailwind CSS', 'GSAP'] },
+  { id: 'web', title: 'React / Web', technologies: ['React Router', 'Context API', 'Axios', 'REST APIs', 'Next.js', 'Nest.js', 'TypeORM'] },
   { id: 'tools', title: 'Tools / Workflow', technologies: ['Git', 'GitHub', 'Vite', 'Jira'] },
-  { id: 'other', title: 'Outras tecnologias com experiência', technologies: ['Firebase'] },
+  { id: 'other', title: 'Outras tecnologias com experiência', technologies: ['Firebase', 'PostgreSQL', 'Docker', 'Node.js'] },
 ]

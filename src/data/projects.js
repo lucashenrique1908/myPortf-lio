@@ -29,7 +29,7 @@ export const developerProjects = [
     category: 'Projeto técnico',
     summary: 'Plataforma SaaS em desenvolvimento.',
     description: 'Projeto ainda em crescimento: plataforma inovadora com tudo em um único lugar.',
-    technologies: ['React', 'TypeScript', 'Next.js', 'PostgreSQL', 'TypeORM', 'Tailwind CSS', 'GSAP', 'Node.js', '+ ...'],
+    technologies: ['React', 'TypeScript', 'Next.js', 'PostgreSQL', 'TypeORM', 'Tailwind CSS', 'GSAP', 'Node.js'],
     liveUrl: 'https://github.com/lucashenrique1908/SAAS-Platform.git', repositoryUrl: null,
     screenshots: [
       { src: saas1, alt: 'Página da plataforma SaaS' },
